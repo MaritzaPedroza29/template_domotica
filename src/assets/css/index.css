@@ -1,0 +1,187 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  .mio-signup{
+    background: linear-gradient(to right, #a4130e, rgba(164,19,14,255));
+  }
+  .mio-signin{
+    background: linear-gradient(to right,#a4130e,rgba(164,19,14,225));
+  }
+  .background{
+    background-color: #ffffff;
+  }
+  .mio-botones .btn{
+    background-color: #a4130e;
+    border-color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .mio-link{
+    color: white !important;
+  }
+  .mio-logo{
+    width: 100px;
+    height: 70px;
+  }
+  .mio-navbar{
+    background-color: #a4130e;
+  }
+  .mio-splash-screen {
+    display: flex; /* Utiliza el modelo de caja flexible */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Establece una altura deseada para el contenedor */
+  }
+  .mio-.imagen-centrada {
+    max-width: 100%; /* Evita que la imagen se desborde del contenedor */
+    max-height: 100%; /* Evita que la imagen se desborde del contenedor */
+  }
+  .mio-rectangle{
+    align-items: center;
+    width: 500px;
+    height: 650px;
+    background-color:#ffffff;
+    border: 1px solid black;
+    margin-right: 50px;
+  }
+  .mio-cuadrado{
+    width: 40px;
+    height: 40px;
+    background-color:#ffffff;
+    border: 1px solid black;
+    font-size: 12px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  .mio-cuadradoinfo{
+    width: 20px;
+    height: 20px;
+    background-color:#ffffff;
+    font-size: 12px;
+  }
+  .mio-columnas{
+    display: flex;
+    justify-content: space-between;
+  }
+  .mio-rectangle-piso{
+    width: 400px;
+    height: 100px;
+    background-color:#ffffff;
+    border: 1px solid black;
+    margin: 10px 20px 30px 20px;
+  }
+  .mio-bloqueA{
+    border: 1px solid black;
+  }
+  .mio-cardimagen{
+    width: 100px; 
+    float: left;
+    margin-right: 10px;
+  }
+  .mio-botoncrear .btn{
+    background-color: #a4130e;
+    border-color: #ffffff;
+    float: right;
+  }
+  .mio-cardtitle{
+    float: left;
+  }
+  .mio-contenedor{
+    display: flex;
+    width: 400px;
+  }
+  .mio-botoneliminar .btn{
+    color: #ffffff;
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin-top: -70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mio-card {
+    width: 600px;
+    margin-bottom: 20px;
+  }
+  .mio-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .mio-card {
+    width: 600px;
+    margin-bottom: 20px;
+  }
+  .mio-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .mio-containerimagen{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .mio-center{
+    margin-top: -400px;
+  }
+  .mio-imagen{
+    width: 100px;
+  }
+  .mio-switch .form-switch .form-check-input{
+   float: right;
+   height: 20px;
+   border: solid 1px #000000;
+  }
+  .mio-cardbloques{
+    width: 100px;
+    margin-bottom: 20px;
+  }
+  .mio-centrar-tarjeta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mio-cardsalones.card{
+    width: 140px;
+    margin: 20px 0px 10px 0px;
+    justify-content:space-between;
+    border: 2px solid #000000; 
+  }
+  .mio-iconos{
+    width: 30px;
+    margin-right: 2px;
+  }
+  .mio-boton-redondo .btn{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Aplica un radio de 50% para hacer el botón redondo */
+    background-color: #ffffff; /* Color de fondo del botón */
+    color: #000000; /* Color del texto */
+    font-size: 16px;
+    border: 1px solid #a4130e; /* Quita el borde */
+    cursor: pointer;
+    float: right;
+    margin-top: -70px;
+  }
+  .mio-carddispositivos{
+    width: 200px;
+    margin-top: 20px;
+    border: 1px solid #a4130e;
+  }
+  .mio-cardinformacion .card-body{
+    margin-top: -50px;
+  }
