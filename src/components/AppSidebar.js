@@ -1,7 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { CSidebar, CSidebarBrand, CSidebarNav } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+import { CImage } from '@coreui/react'
+import logo from '../assets/images/smartfesc.jpg'
 import { logoNegative } from '../assets/brand/logo-negative'
 import { sygnet } from '../assets/brand/sygnet'
 import { AppSidebarNav } from './sidebar/AppSidebarNav'
@@ -20,8 +21,7 @@ const AppSidebar = () => {
       visible={sidebarShow}
     >
       <CSidebarBrand className="d-none d-md-flex" to="/">
-        <CIcon className="sidebar-brand-full" src={imagen} height={35} />
-        <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
+        <CImage rounded src={logo} width={100} height={50} />
       </CSidebarBrand>
       <CSidebarNav>
           <AppSidebarNav items={items} />

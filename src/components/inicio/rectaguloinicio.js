@@ -28,7 +28,14 @@ const Rectangulo= ({bloque}) =>{
               <CRow>
                   {piso.salones.map((salon, salonIndex) => (
                     <CCol key={salonIndex}>
-                      <Cuadrado salones={salon}>{salon}</Cuadrado>
+                        <CTooltip
+                          content={salon.profesor}
+                          placement="top"
+                          style={customTooltipStyle}
+                        ><div>
+                          <Cuadrado salones={salon}>{salon}</Cuadrado>
+                        </div>
+                        </CTooltip>
                     </CCol>
                   ))}
               </CRow></CCardBody>

@@ -1,12 +1,14 @@
 import { CCard, CButton, CCardBody, CCardTitle, CRow, CCol } from '@coreui/react';
 import '../../assets/css/index.css';
 import  Botonapagar from './botonapagar';
+import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 
 const Carddispositivos= ({dispositivos, onEditName})=>{
     const [isEditing, setIsEditing] = useState(false);
     const [editedName, setEditedName] = useState(dispositivos.nombre);
     const [dispositivosdata, setDispositivosdata] = useState(); // Tu array de dispositivos
+    const { salon } = useParams();
 
   const toggleDeviceState = (salonIndex, dispositivoIndex) => {
     // Crear una copia del array de dispositivos

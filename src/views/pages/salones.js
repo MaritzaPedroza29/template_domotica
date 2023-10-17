@@ -41,7 +41,6 @@ const Salones= ()=>{
     };
     
     const abrirModal = () => {
-        console.log("hola mundo");
         setMostrarModal(true);
       };
     
