@@ -1,13 +1,25 @@
-import { Card, Col, Row } from 'react-bootstrap';
-import '../../css/index.css';
-import Button from 'react-bootstrap/Button';
-import { Botonapagar } from './botonapagar';
+import { CCard, CButton, CCardBody, CCardTitle, CRow, CCol } from '@coreui/react';
+import '../../assets/css/index.css';
+import  Botonapagar from './botonapagar';
 import { useState } from 'react';
 
-function Carddispositivos({dispositivos, onEditName}){
+const Carddispositivos= ({dispositivos, onEditName})=>{
     const [isEditing, setIsEditing] = useState(false);
     const [editedName, setEditedName] = useState(dispositivos.nombre);
+    const [dispositivosdata, setDispositivosdata] = useState(); // Tu array de dispositivos
 
+  const toggleDeviceState = (salonIndex, dispositivoIndex) => {
+    // Crear una copia del array de dispositivos
+    const newDispositivos = [...dispositivos];
+
+    // Cambiar el estado del dispositivo en base a los índices
+    newDispositivos[salonIndex].dispositivos[dispositivoIndex].estado =
+      newDispositivos[salonIndex].dispositivos[dispositivoIndex].estado === 1 ? 0 : 1;
+
+    // Actualizar el estado con el nuevo array
+    setDispositivosdata(newDispositivos);
+  };
+    console.log(dispositivos);
     const handleNameClick = () => {
         setIsEditing(true);
       };
@@ -22,26 +34,23 @@ function Carddispositivos({dispositivos, onEditName}){
       };
     console.log(dispositivos);
     return (
-        <Card className='mio-carddispositivos'>
-            <Card.Body>
-                <img src={dispositivos.imagen} alt="" className='mio-iconos' />
-                {isEditing ? (
-                <input
-                    type="text"
-                    value={editedName}
-                    onChange={handleNameChange}
-                />
-                ) : (
-                <Card.Title onClick={handleNameClick}>
-                    {dispositivos.nombre}
-                </Card.Title>
-                )}
-                {isEditing && (
-                <Button onClick={handleNameSave} variant="success">Guardar</Button>
-                )}
-                <Botonapagar dispositivos={dispositivos} />
-            </Card.Body>
-        </Card>
+      <CRow className="justify-content-between">
+      {dispositivos.data.salones.map((salon, salonIndex) =>
+        salon.dispositivos.map((dispositivo, dispositivoIndex) => (
+          <CCol xs={4}>
+          <CCard key={dispositivo.id} className='mio-carddispositivos'>
+            <CCardBody>
+              <img src={dispositivo.imagen} alt="" className="mio-iconos" />
+              <CCardTitle onClick={handleNameClick}>{dispositivo.nombre}</CCardTitle>
+              <Botonapagar dispositivos={dispositivos} salonIndex={salonIndex}
+              dispositivoIndex={dispositivoIndex}
+              onToggleState={toggleDeviceState} />
+            </CCardBody>
+          </CCard>
+          </CCol>
+        ))
+      )}
+    </CRow>
       );
 }
-export {Carddispositivos};
+export default Carddispositivos;

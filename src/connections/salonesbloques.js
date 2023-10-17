@@ -188,6 +188,5 @@ const salones_bloques = [
         ]
         }
     }
-]
-
+];
 export default salones_bloques;

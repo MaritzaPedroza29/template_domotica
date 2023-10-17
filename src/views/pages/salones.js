@@ -7,40 +7,39 @@ import Botoncrear  from "../../components/salones/botoncrear";
 import  Modalcrearsalon  from "../../components/salones/modalcrearsalon";
 
 const Salones= ()=>{
+    console.log(salones_bloques);
     const [selectedOptionInfo, setSelectedOptionInfo] = useState([]);
     const [mostrarModal, setMostrarModal] = useState(false);
-    const [salones, setSalones] = useState([]);
-    useEffect(()=>{
-        setSalones(salones_bloques);
-    }, []);
+    const [salonesdata, setSalonesdata] = useState(salones_bloques);
 
+    console.log(salonesdata);
     const opcionselect = (salonesSeleccionados) => {
-        console.log(typeof(salones));
         console.log(salonesSeleccionados);
         setSelectedOptionInfo(salonesSeleccionados);
     };
     const agregarSalones = (nuevosSalones) => {
         // Clonar el arreglo de salones para no mutar el estado directamente
-        const nuevosSalonesData = [...salones];
-
+        const nuevosSalonesData = [...salonesdata];
+    
         // Encuentra el índice del bloque al que deseas agregar el nuevo salón
         const bloqueIndex = nuevosSalonesData.findIndex((bloque) => bloque.bloque === nuevosSalones.bloque);
-
+    
         if (bloqueIndex !== -1) {
             // Agrega el nuevo salón al subarreglo de salones dentro del bloque
-            nuevosSalones[bloqueIndex].data.salones.push({
-            id: nuevosSalones[bloqueIndex].data.salones.length + 1,
-            nombresalon: nuevosSalones.nombre,
-            dispositivos: "3 dispositivos",
-            aire_acondicionado: nuevosSalones.aire_acondicionado,
-            televisor: nuevosSalones.televisor,
-            puerta: nuevosSalones.puerta,
+            nuevosSalonesData[bloqueIndex].data.salones.push({
+                id: nuevosSalonesData[bloqueIndex].data.salones.length + 1,
+                nombresalon: nuevosSalones.nombre,
+                dispositivos: "3 dispositivos",
+                aire_acondicionado: nuevosSalones.aire_acondicionado,
+                televisor: nuevosSalones.televisor,
+                puerta: nuevosSalones.puerta,
             });
         }
-
+    
         // Actualiza el estado con el nuevo arreglo de salones
-        setSalones(nuevosSalones);
+        setSalonesdata(nuevosSalonesData);
     };
+    
     const abrirModal = () => {
         console.log("hola mundo");
         setMostrarModal(true);
@@ -54,9 +53,8 @@ const Salones= ()=>{
             <CContainer className="mt-3 mb-3">
                 <h3 className="text-center">Salones</h3>
                 <Botoncrear abrirModal={abrirModal}></Botoncrear>
-                <Modalcrearsalon mostrarModal={mostrarModal} cerrarModal={cerrarModal} salones={salones} agregarSalon={agregarSalones}></Modalcrearsalon>
-                <p>Seleccione una de las opciones</p>
-                <Select salones={salones} opcionselect={opcionselect} className="mt-2"></Select>
+                <Modalcrearsalon mostrarModal={mostrarModal} cerrarModal={cerrarModal} salones={salonesdata} agregarSalon={agregarSalones}></Modalcrearsalon>
+                <Select salones={salonesdata} opcionselect={opcionselect} className="mt-2"></Select>
                 <CRow className="justify-content-md-center">
                 {selectedOptionInfo ? (
                     selectedOptionInfo.map((selectinfo) =><CCol sm="12" md="8" lg="6"><Cardescenarios informacion={selectinfo}/></CCol>)

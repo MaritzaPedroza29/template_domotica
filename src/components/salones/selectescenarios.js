@@ -22,6 +22,7 @@ const Select= ({salones, opcionselect})=>{
     };
     return (
         <CFormSelect aria-label="Default select example" onChange={Selectcambio} value={selectOption}>
+            <option>Seleccione una de las opciones</option>
             {salones.map((salon, index) => (
                 <option value={salon.data.id}>{salon.bloque}</option>
             ))}

@@ -2,6 +2,7 @@ import { CModal, CForm, CButton, CListGroup, CModalHeader, CModalTitle, CModalBo
 import { useState } from 'react';
 
 const Modalcrearsalon= ({mostrarModal, cerrarModal, salones, agregarSalon})=>{
+  console.log(salones);
     const [nuevoSalon, setNuevoSalon] = useState({
         nombre: "",
         aire_acondicionado: false,
@@ -9,6 +10,7 @@ const Modalcrearsalon= ({mostrarModal, cerrarModal, salones, agregarSalon})=>{
         puerta: false,
         bloque: "1",
     });
+    const  [visible, setVisible] = useState(false);
         console.log(salones);
 
         const agregarsalon = () => {
@@ -69,9 +71,9 @@ const Modalcrearsalon= ({mostrarModal, cerrarModal, salones, agregarSalon})=>{
         agregarsalon();
     };
 return(
-    <CModal show={mostrarModal} onHide={cerrarModal}>
+  <CModal alignment="center" visible={mostrarModal} onClose={() => setVisible(false)} aria-labelledby="VerticallyCenteredExample">
         <CForm onSubmit={handleSubmit}>
-          <CModalHeader closeButton>
+          <CModalHeader onClose={cerrarModal}>
             <CModalTitle>Crear Salón</CModalTitle>
           </CModalHeader>
           <CModalBody>
@@ -87,50 +89,66 @@ return(
               />
             </div>
             <div className="mb-3">
-              <CFormLabel>Seleccioneel bloque</CFormLabel>
               <CFormSelect aria-label="Default select example" value={nuevoSalon.bloque} onChange={(e)=>
                 setNuevoSalon({...nuevoSalon, bloque: e.target.value })
                 }>
+                    <option value={4}>Seleccione el bloque</option>
                     <option value={salones[0].bloque}>{salones[0].bloque}</option>
                     <option value={salones[1].bloque}>{salones[1].bloque}</option>
                     <option value={salones[2].bloque}>{salones[2].bloque}</option>
                 </CFormSelect>
             </div>
-            <CFormLabel>Seleccione los dispositivos que desea vincular</CFormLabel>
             <CListGroup>
                 <CListGroupItem>
-                    <CFormCheck aria-label="option 1" label="aire acondicionado A106" checked={nuevoSalon.aire_acondicionado} onChange={(e)=>
-                        setNuevoSalon({...nuevoSalon, aire_acondicionado:e.target.value})
-                    }/>
-                    <img
-                        src={salones[0].data.salones[0].aire_acondicionado}
-                        alt=""
-                        className='mio-iconos'
+                <div>
+                  <div className='mio-lista'>
+                    <CFormCheck
+                      aria-label="option 1"
+                      checked={nuevoSalon.aire_acondicionado}
+                      onChange={(e) =>
+                        setNuevoSalon({ ...nuevoSalon, aire_acondicionado: e.target.value })
+                      }
                     />
+                    <label className='mio-listalabel'>aire acondicionado A106</label>
+                    <img
+                      src={salones[0].data.salones[0].aire_acondicionado}
+                      alt=""
+                      className="mio-iconolista"
+                    />
+                  </div>
+                </div>
                 </CListGroupItem>
-                <CListGroupItem><CFormCheck aria-label="option 2" label="televisor A106" checked={nuevoSalon.televisor} onChange={(e)=>
-                        setNuevoSalon({...nuevoSalon, televisor:e.target.value})
-                    }/>
-                <img
-                    src={salones[0].data.salones[0].televisor}
-                    alt=""
-                    className='mio-iconos'
-                />
+                <CListGroupItem>
+                  <div className='mio-lista'>
+                    <CFormCheck aria-label="option 2" checked={nuevoSalon.televisor} onChange={(e)=>
+                          setNuevoSalon({...nuevoSalon, televisor:e.target.value})
+                      }/>
+                    <label className='mio-listalabel'>Televisor A106</label>
+                    <img
+                      src={salones[0].data.salones[0].televisor}
+                      alt=""
+                      className='mio-iconolista'
+                    />
+                  </div>
                 </CListGroupItem>
-                <CListGroupItem><CFormCheck aria-label="option 3" label="puerta A106" checked={nuevoSalon.puerta} onChange={(e)=>
-                        setNuevoSalon({...nuevoSalon, puerta:e.target.value})
-                    }/>
-                <img
-                    src={salones[0].data.salones[0].puerta}
-                    alt=""
-                    className='mio-iconos'
-                />
+                <CListGroupItem>
+                  <div className='mio-lista'>
+                    <CFormCheck aria-label="option 3"  checked={nuevoSalon.puerta} onChange={(e)=>
+                          setNuevoSalon({...nuevoSalon, puerta:e.target.value})
+                      }/>
+                      <label className='mio-listalabel'>puerta A106</label>
+                    <img
+                      src={salones[0].data.salones[0].puerta}
+                      alt=""
+                      className='mio-iconolista'
+                    />
+                  </div>
                 </CListGroupItem>
             </CListGroup>      
           </CModalBody>
           <CModalFooter>
-            <CButton  type="submit" variant="success">Guardar</CButton>
-            <CButton onClick={cerrarModal} variant='danger'>Cerrar</CButton>
+            <CButton  type="submit" color="success">Guardar</CButton>
+            <CButton onClick={cerrarModal} color='danger'>Cerrar</CButton>
           </CModalFooter>
         </CForm>
 </CModal>

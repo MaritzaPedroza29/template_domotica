@@ -1,16 +1,23 @@
-import { CButton, CCard, CCardBody, CCardTitle, CCardText, CFormSwitch } from "@coreui/react";
+import { CButton, CCard, CCardBody, CCardTitle, CCardText, CFormSwitch, CBadge } from "@coreui/react";
 import CIcon from '@coreui/icons-react';
 import * as icon from '@coreui/icons';
 import CForm from '@coreui/react';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modaldetalleusuario  from "./modaldetalleusuario";
 
 
-const Cardusuario= ({usuarios, eliminarUsuario, agregarUsuario})=>{
+const Cardusuario= ({usuarios, eliminarUsuario, agregarUsuario, actualizarUsuario})=>{
     const [showModal, setShowModal] = useState(false);
     const [userData, setUserData] = useState([]);
-    console.log(typeof(userData));
-
+    const [badgeClass, setBadgeClass] = useState(
+      usuarios.data.estado === "1" ? "success" : "danger"
+    );
+    const [badgeText, setBadgeText] = useState(
+      usuarios.data.estado === "1" ? "Activo" : "Inactivo"
+    );
+    useEffect(()=>{
+      setUserData(usuarios);
+    }, []);
     const handleClick = () => {
         eliminarUsuario(usuarios.data.id);
       };
@@ -23,10 +30,19 @@ const Cardusuario= ({usuarios, eliminarUsuario, agregarUsuario})=>{
       const handleCloseModal = () => {
         setShowModal(false);
       };
+
+      const handleSwitchChange = (newSwitchValue) => {
+        console.log(newSwitchValue);
+        const newBadgeClass = newSwitchValue === "1" ? "success" : "danger";
+        const newBadgeText = newSwitchValue === "1" ? "Activo" : "Inactivo";
+    
+        setBadgeClass(newBadgeClass);
+        setBadgeText(newBadgeText);
+      };
       
     return(
         <>
-        <CCard className="mt-3 mb-3 mio-contenedor">
+        <CCard className="mt-3 mb-3 mio-contenedor" onClick={handleCardClick}>
             <CCardBody>
                 <img
                     src={usuarios.data.imagen}
@@ -41,15 +57,7 @@ const Cardusuario= ({usuarios, eliminarUsuario, agregarUsuario})=>{
                     </CButton>
                 </div>
                 <div className="mio-switch">
-                <CFormSwitch // prettier-ignore
-                    type="switch"
-                   className=""
-                />
-                </div>
-                <div className="mio-botones">
-                  <CButton className="" onClick={handleCardClick}>
-                    <CIcon icon={icon.cilColorBorder}/>
-                  </CButton>
+                  <CBadge color={badgeClass}>{badgeText}</CBadge>
                 </div>
             </CCardBody>
         </CCard>
@@ -59,6 +67,9 @@ const Cardusuario= ({usuarios, eliminarUsuario, agregarUsuario})=>{
           handleClose={handleCloseModal}
           userData={userData}
           agregarUsuario = {agregarUsuario}
+          eliminarUsuarios = {eliminarUsuario}
+          handleSwitchChange={handleSwitchChange}
+          actualizarUsuario={actualizarUsuario}
         />
       </>
     )

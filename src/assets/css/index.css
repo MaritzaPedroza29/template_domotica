@@ -172,7 +172,7 @@ body {
     background-color: #ffffff; /* Color de fondo del botón */
     color: #000000; /* Color del texto */
     font-size: 16px;
-    border: 1px solid #a4130e; /* Quita el borde */
+    border: 1px solid #000000; /* Quita el borde */
     cursor: pointer;
     float: right;
     margin-top: -70px;
@@ -184,4 +184,17 @@ body {
   }
   .mio-cardinformacion .card-body{
     margin-top: -50px;
+  }
+  .mio-list{
+    display: "flex";
+    align-items: "center" ;
+    border: 1px solid #000000;
+  }
+  .mio-listalabel{
+    cursor: "pointer";
+    margin-left: 10px;
+  }
+  .mio-iconolista{
+    width: 30px;
+    margin-left: 10px;
   }

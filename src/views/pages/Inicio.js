@@ -11,9 +11,11 @@ const Inicio= ()=>{
     useEffect(()=>{
         setSalonesdata(salones);
     }, []);
-      const handleCardClick = (salones) => {
+
+    const handleCardClick = (salones) => {
+        console.log(salones);
         setSelectedCard([salones]);
-      };
+    };
     return(
             <CContainer className="mt-3 mb-3">
                 <h3 className="text-center">Inicio</h3>

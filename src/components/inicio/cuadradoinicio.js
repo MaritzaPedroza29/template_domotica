@@ -1,8 +1,8 @@
 import React from 'react';
 import '../../assets/css/index.css';
 
-function Cuadrado(salones){
-  const  estado  = salones.children.estado;
+const Cuadrado= ({salones}) =>{
+  const  estado  = salones.estado;
 
   let backgroundColor = '#4caf50'; // Establece un color de fondo predeterminado
   let color = '#ffffff';
@@ -17,10 +17,10 @@ function Cuadrado(salones){
     backgroundColor = '#ffffff';
     color = '#000000';
   }
-  console.log(salones.children);
+  console.log(salones);
   return (
-    <div className="mio-cuadrado" style={{ backgroundColor: backgroundColor, color:color }}>{salones.children.salon}</div>
+    <div className="mio-cuadrado" style={{ backgroundColor: backgroundColor, color:color }}>{salones.salon}</div>
   )
 }
 
-export {Cuadrado};
+export default Cuadrado;

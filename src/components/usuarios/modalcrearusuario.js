@@ -1,11 +1,16 @@
 import { CModalBody, CModalHeader, CModalTitle, CModal, CModalFooter, CButton } from '@coreui/react';
+import { CAlert } from '@coreui/react'
 import {CFormGroup, CFormLabel, CInputGroup,CFormInput,CForm} from '@coreui/react';
 import React, { useState, useEffect } from 'react';
 
 const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios })=> {
+  console.log(mostrarModal);
+  const  [visible, setVisible] = useState(false)
+  const [archivoSeleccionado, setArchivoSeleccionado] = useState(null);
   const [nuevoUsuario, setNuevoUsuario] = useState({
     nombre: "",
     correo: "",
+    imagenURL: null,
   });
   const agregarusuario = () => {
     if (!nuevoUsuario.nombre.trim() || !nuevoUsuario.correo.trim()) {
@@ -17,7 +22,7 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
       usuario: "Usuario" + (usuarios.length + 1),
       data: {
         id: usuarios.length + 1,
-        imagen: "./img/user.png",
+        imagen: nuevoUsuario.imagenURL,
         nombre: nuevoUsuario.nombre,
         correo: nuevoUsuario.correo,
       },
@@ -28,7 +33,20 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
     setNuevoUsuario({
       nombre: "",
       correo: "",
+      imagenURL: null,
     });
+    <CAlert color="success">
+      Usuario creado exitosamente
+    </CAlert>
+  };
+
+  const handleFileChange = (e) => {
+    const archivo = e.target.files[0]; // Obtiene el archivo seleccionado
+    setArchivoSeleccionado(archivo);
+
+    // Genera una URL de objeto a partir del archivo seleccionado
+    const imagenURL = URL.createObjectURL(archivo);
+    setNuevoUsuario({ ...nuevoUsuario, imagenURL });
   };
 
   const handleSubmit = (e) => {
@@ -36,9 +54,14 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
     agregarusuario();
   };
     return (
-      <CModal show={mostrarModal} onHide={cerrarModal}>
+      <CModal
+        alignment="center"
+        visible={mostrarModal}
+        onClose={() => setVisible(false)}
+        aria-labelledby="VerticallyCenteredExample"
+      >
         <CForm onSubmit={handleSubmit}>
-          <CModalHeader closeButton>
+          <CModalHeader onClose={cerrarModal}>
             <CModalTitle>Crear usuario</CModalTitle>
           </CModalHeader>
           <CModalBody>
@@ -71,10 +94,14 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
                 placeholder="Ingrese su contraseña"
               />
             </div>
+            <CInputGroup>
+              <CFormInput type="file" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onChange={handleFileChange}/>
+              <CButton type="button" color="secondary" variant="outline" id="inputGroupFileAddon04" onClick={() => console.log(archivoSeleccionado ? archivoSeleccionado.name : 'Ningún archivo seleccionado')}>Guardar</CButton>
+            </CInputGroup>
           </CModalBody>
           <CModalFooter>
-            <CButton  type="submit" variant="success">Guardar</CButton>
-            <CButton onClick={cerrarModal} variant='danger'>Cerrar</CButton>
+            <CButton  type="submit" color="success">Guardar</CButton>
+            <CButton onClick={cerrarModal} color='danger'>Cerrar</CButton>
             {/* Otros botones o acciones */}
           </CModalFooter>
         </CForm>

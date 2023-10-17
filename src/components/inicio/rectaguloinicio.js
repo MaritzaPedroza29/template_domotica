@@ -2,12 +2,11 @@ import React from 'react';
 import { CCard, CCol, CRow, CCardBody } from'@coreui/react';
 import { CTooltip } from '@coreui/react'
 import '../../assets/css/index.css';
-import { Cuadrado } from './cuadradoinicio';
+import Cuadrado from './cuadradoinicio';
 import CButton from '@coreui/react';
 
-const Rectangulo= ({ bloque }) =>{
-  console.log(bloque.data.pisos);
-
+const Rectangulo= ({bloque}) =>{
+      console.log(bloque);
   // Asegúrate de que bloque.data.pisos sea un arreglo
   const pisos = bloque.data.pisos || []; // Si no hay pisos, utiliza un arreglo vacío
   console.log(pisos);
@@ -21,7 +20,7 @@ const Rectangulo= ({ bloque }) =>{
     <div className="mio-centrar-tarjeta">
     <CCard className="mio-rectangle">
       <CCardBody>
-        {pisos.map((piso, index) => (
+      {pisos.map((piso, index) => (
           <>
           <label>{piso.piso}</label>
           <CCard className="mio-rectangle-piso" key={index}>

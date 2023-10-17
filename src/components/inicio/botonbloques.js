@@ -10,12 +10,9 @@ const Cardbloques= ({salones,  onClick })=>{
         bloques = salones.bloque;
     }
     return (
-                /*<CCard className="mio-cardbloques" >
-                    <CCardBody>{bloques}</CCardBody>
-                </CCard>*/
                 <div className='mio-botones'>
                     <CButton onClick={() => onClick(salones)}>{bloques}</CButton>
                 </div>
          );
 }
-export default Cardsalones;
+export default Cardbloques;

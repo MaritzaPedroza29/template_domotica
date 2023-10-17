@@ -1,7 +1,7 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
 import {
-  cilDescription,
+  cilDevices,
   cilUser,
   cibGhost,
 } from '@coreui/icons'
@@ -22,9 +22,9 @@ const sidebarnav = [
   },
   {
     component: CNavItem,
-    name: 'Docs',
-    href: 'https://coreui.io/react/docs/templates/installation/',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
+    name: 'Dispositivos',
+    to: '/dispositivos',
+    icon: <CIcon icon={cilDevices} customClassName="nav-icon" />,
   },
 ]
 
