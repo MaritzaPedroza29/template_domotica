@@ -9,10 +9,30 @@ import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
 const sidebarnav = [
   {
-    component: CNavItem,
-    name: 'Usuarios',
-    to: '/usuario',
-    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
+    component: CNavGroup,
+    name: 'Dispositivos',
+    to: '/dispositivos',
+    icon: <CIcon icon={cilDevices} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Aire acondicionado',
+        to: '/aireacondicionado',
+      },
+      {
+        component: CNavItem,
+        name: 'Puertas',
+        to: '/dispositivos/puertas',
+      },{
+        component: CNavItem,
+        name: 'Televisores',
+        to: '/dispositivos/televisores',
+      },{
+        component: CNavItem,
+        name: 'Todos',
+        to: '/dispositivos',
+      },
+    ]
   },
   {
     component: CNavItem,
@@ -22,9 +42,9 @@ const sidebarnav = [
   },
   {
     component: CNavItem,
-    name: 'Dispositivos',
-    to: '/dispositivos',
-    icon: <CIcon icon={cilDevices} customClassName="nav-icon" />,
+    name: 'Usuarios',
+    to: '/usuario',
+    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
   },
 ]
 

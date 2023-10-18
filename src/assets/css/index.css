@@ -140,6 +140,7 @@ body {
   }
   .mio-imagen{
     width: 100px;
+    margin: 0 10px; /* Margen entre las imágenes (ajusta según sea necesario) */
   }
   .mio-switch .form-switch .form-check-input{
    float: right;
@@ -198,6 +199,19 @@ body {
     width: 30px;
     margin-left: 10px;
   }
+<<<<<<< HEAD
   :root {
     --cui-sidebar-bg: #007bff; /* Cambia el valor a tu color deseado */
   }
+=======
+  .mio-sidebar{
+    background-color: #a4130e;
+    padding: '10px';
+  }
+  .mio-imagen-contenedor{
+    display: flex; /* Utiliza un contenedor flexible (flexbox) */
+    justify-content: space-between; /* Espacio igual entre las imágenes */
+    align-items: center; /* Centra verticalmente las imágenes */
+  }
+  
+>>>>>>> c2609cc64217b74d8d067f9769464f3a60fd820d

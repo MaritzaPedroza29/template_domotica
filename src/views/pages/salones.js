@@ -54,9 +54,9 @@ const Salones= ()=>{
                 <Botoncrear abrirModal={abrirModal}></Botoncrear>
                 <Modalcrearsalon mostrarModal={mostrarModal} cerrarModal={cerrarModal} salones={salonesdata} agregarSalon={agregarSalones}></Modalcrearsalon>
                 <Select salones={salonesdata} opcionselect={opcionselect} className="mt-2"></Select>
-                <CRow className="justify-content-md-center">
+                <CRow>
                 {selectedOptionInfo ? (
-                    selectedOptionInfo.map((selectinfo) =><CCol sm="12" md="8" lg="6"><Cardescenarios informacion={selectinfo}/></CCol>)
+                    selectedOptionInfo.map((selectinfo) =><CCol><Cardescenarios informacion={selectinfo}/></CCol>)
                 ) : (
                     <></> // Esto representa un fragmento vacío, es decir, no renderiza nada.
                 )}
