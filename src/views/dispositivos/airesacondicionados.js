@@ -18,7 +18,7 @@ const Inicio= ()=>{
     };
     return(
             <CContainer className="mt-3 mb-3">
-                <h3 className="text-center">Inicio</h3>
+                <h3 className="text-center">Aire Acondicionado</h3>
                 <CCardBody className="text-center justify-content-center align-items-center">
                 <CRow md={4}>
                     {salonesdata.map(salon => <CCol><Cardbloques key={salon.data.id} salones={salon}  onClick={handleCardClick}/></CCol>)}

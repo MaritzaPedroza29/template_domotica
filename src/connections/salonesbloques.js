@@ -14,7 +14,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado A101",
+                        "nombre":"aire A101",
                         "estado": 1
                     },{
                         "id": 2,
@@ -23,7 +23,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta A101",
                         "estado": 0
                     }
@@ -35,7 +35,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado A102",
+                        "nombre":"aire A102",
                         "estado": 1
                     },{
                         "id": 2,
@@ -44,7 +44,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta A102",
                         "estado": 0
                     }
@@ -56,7 +56,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado A103",
+                        "nombre":"aire A103",
                         "estado": 1
                     },{
                         "id": 2,
@@ -65,7 +65,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta A103",
                         "estado": 0
                     }
@@ -77,7 +77,7 @@ const salones_bloques = [
                         {
                             "id": 1,
                             "aire_acondicionado":aireacondicionado,
-                            "nombre":"aire_acondicinado A104",
+                            "nombre":"aire A104",
                             "estado": 1
                         },{
                             "id": 2,
@@ -86,7 +86,7 @@ const salones_bloques = [
                             "estado": 1
                         },{
                             "id": 3,
-                            "aire_acondicionado":puerta,
+                            "puerta":puerta,
                             "nombre":"puerta A104",
                             "estado": 0
                         }
@@ -98,7 +98,7 @@ const salones_bloques = [
                         {
                             "id": 1,
                             "aire_acondicionado":aireacondicionado,
-                            "nombre":"aire_acondicinado A105",
+                            "nombre":"aire A105",
                             "estado": 1
                         },{
                             "id": 2,
@@ -107,7 +107,7 @@ const salones_bloques = [
                             "estado": 1
                         },{
                             "id": 3,
-                            "aire_acondicionado":puerta,
+                            "puerta":puerta,
                             "nombre":"puerta A105",
                             "estado": 0
                         }
@@ -127,7 +127,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado B201",
+                        "nombre":"aire B201",
                         "estado": 1
                     },{
                         "id": 2,
@@ -136,7 +136,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta B201",
                         "estado": 0
                     }
@@ -148,7 +148,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado B202",
+                        "nombre":"aire B202",
                         "estado": 1
                     },{
                         "id": 2,
@@ -157,7 +157,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta B202",
                         "estado": 0
                     }
@@ -169,7 +169,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado B203",
+                        "nombre":"aire B203",
                         "estado": 1
                     },{
                         "id": 2,
@@ -178,7 +178,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta B203",
                         "estado": 0
                     }
@@ -190,7 +190,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado B204",
+                        "nombre":"aire B204",
                         "estado": 1
                     },{
                         "id": 2,
@@ -199,7 +199,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta B204",
                         "estado": 0
                     }
@@ -219,7 +219,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado C201",
+                        "nombre":"aire C201",
                         "estado": 1
                     },{
                         "id": 2,
@@ -228,7 +228,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta C201",
                         "estado": 0
                     }
@@ -240,7 +240,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado C202",
+                        "nombre":"aire C202",
                         "estado": 1
                     },{
                         "id": 2,
@@ -249,7 +249,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta C202",
                         "estado": 0
                     }
@@ -261,7 +261,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado C205",
+                        "nombre":"aire C205",
                         "estado": 1
                     },{
                         "id": 2,
@@ -270,7 +270,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta C205",
                         "estado": 0
                     }
@@ -282,7 +282,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado C206",
+                        "nombre":"aire C206",
                         "estado": 1
                     },{
                         "id": 2,
@@ -291,7 +291,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta C206",
                         "estado": 0
                     }
@@ -303,7 +303,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado C207",
+                        "nombre":"aire C207",
                         "estado": 1
                     },{
                         "id": 2,
@@ -312,7 +312,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta C207",
                         "estado": 0
                     }
@@ -324,7 +324,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado C301",
+                        "nombre":"aire C301",
                         "estado": 1
                     },{
                         "id": 2,
@@ -333,7 +333,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta C301",
                         "estado": 0
                     }
@@ -345,7 +345,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado C302",
+                        "nombre":"aire C302",
                         "estado": 1
                     },{
                         "id": 2,
@@ -354,7 +354,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta C302",
                         "estado": 0
                     }
@@ -366,7 +366,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado C303",
+                        "nombre":"aire C303",
                         "estado": 1
                     },{
                         "id": 2,
@@ -375,7 +375,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta C303",
                         "estado": 0
                     }
@@ -387,7 +387,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado C304",
+                        "nombre":"aire C304",
                         "estado": 1
                     },{
                         "id": 2,
@@ -396,7 +396,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta C304",
                         "estado": 0
                     }
@@ -408,7 +408,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado C305",
+                        "nombre":"aire C305",
                         "estado": 1
                     },{
                         "id": 2,
@@ -417,7 +417,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta C305",
                         "estado": 0
                     }
@@ -429,7 +429,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado C306",
+                        "nombre":"aire C306",
                         "estado": 1
                     },{
                         "id": 2,
@@ -438,7 +438,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta C306",
                         "estado": 0
                     }
@@ -450,7 +450,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado C401",
+                        "nombre":"aire C401",
                         "estado": 1
                     },{
                         "id": 2,
@@ -459,7 +459,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta C401",
                         "estado": 0
                     }
@@ -471,7 +471,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado C402",
+                        "nombre":"aire C402",
                         "estado": 1
                     },{
                         "id": 2,
@@ -480,7 +480,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta C402",
                         "estado": 0
                     }
@@ -492,7 +492,7 @@ const salones_bloques = [
                     {
                         "id": 1,
                         "aire_acondicionado":aireacondicionado,
-                        "nombre":"aire_acondicinado C305",
+                        "nombre":"aire C305",
                         "estado": 1
                     },{
                         "id": 2,
@@ -501,7 +501,7 @@ const salones_bloques = [
                         "estado": 1
                     },{
                         "id": 3,
-                        "aire_acondicionado":puerta,
+                        "puerta":puerta,
                         "nombre":"puerta C305",
                         "estado": 0
                     }

@@ -23,13 +23,14 @@ const Modalcrearsalon= ({mostrarModal, cerrarModal, salones, agregarSalon})=>{
             let puerta = false;
           
             if (nuevoSalon.aire_acondicionado) {
-              aireacondicionado = salones[0].data.salones[0].aire_acondicionado;
+              aireacondicionado = salones[0].data.salones[0].dispositivos[0].aire_acondicionado;
             }
             if (nuevoSalon.televisor) {
-              televisor = salones[0].data.salones[0].televisor;
+              televisor = salones[0].data.salones[0].dispositivos[1].televisor;
             }
             if (nuevoSalon.puerta) {
-              puerta = salones[0].data.salones[0].puerta;
+              console.log(salones[0].data.salones[0]);
+              puerta = salones[0].data.salones[0].dispositivos[2].puerta;
             }
           
             const bloqueIndex = salones.findIndex((salon) => salon.bloque === nuevoSalon.bloque);
@@ -44,10 +45,24 @@ const Modalcrearsalon= ({mostrarModal, cerrarModal, salones, agregarSalon})=>{
               const nuevoSalonData = {
                 id: nuevoID,
                 nombresalon: nuevoSalon.nombre,
-                dispositivos: "3 dispositivos",
-                aire_acondicionado:aireacondicionado,
-                televisor:televisor,
-                puerta:puerta,
+                dispositivos: [
+                  {id: 1,
+                    nombre:"aire_acondicionado A106",
+                    estado: 1,
+                    aire_acondicionado:aireacondicionado
+                  },{
+                    id: 2,
+                    nombre:"Televisor A106",
+                    estado: 1,
+                    televisor:televisor
+                  },{
+                    id: 3,
+                    nombre:"Puerta A106",
+                    estado: 1,
+                    puerta:puerta
+                  }
+                  
+                ],
               };
           
               nuevosSalones[bloqueIndex].data.salones.push(nuevoSalonData);
@@ -111,7 +126,7 @@ return(
                     />
                     <label className='mio-listalabel'>aire acondicionado A106</label>
                     <img
-                      src={salones[0].data.salones[0].aire_acondicionado}
+                      src={salones[0].data.salones[0].dispositivos[0].aire_acondicionado}
                       alt=""
                       className="mio-iconolista"
                     />
@@ -125,7 +140,7 @@ return(
                       }/>
                     <label className='mio-listalabel'>Televisor A106</label>
                     <img
-                      src={salones[0].data.salones[0].televisor}
+                      src={salones[0].data.salones[0].dispositivos[1].televisor}
                       alt=""
                       className='mio-iconolista'
                     />
@@ -138,7 +153,7 @@ return(
                       }/>
                       <label className='mio-listalabel'>puerta A106</label>
                     <img
-                      src={salones[0].data.salones[0].puerta}
+                      src={salones[0].data.salones[1].dispositivos[2].puerta}
                       alt=""
                       className='mio-iconolista'
                     />
