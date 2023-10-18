@@ -198,3 +198,6 @@ body {
     width: 30px;
     margin-left: 10px;
   }
+  :root {
+    --cui-sidebar-bg: #007bff; /* Cambia el valor a tu color deseado */
+  }
