@@ -8,6 +8,7 @@ const Cardescenarios = ({ informacion }) => {
   const [showModal, setShowModal] = useState(false);
   const [salonesdata, setSalonesdata] = useState([]);
   const [selectedSalon, setSelectedSalon] = useState(null);
+  console.log(informacion);
   const handleCardClick = (salonData) => {
     setSelectedSalon(salonData);
     setShowModal(true);
@@ -25,7 +26,7 @@ const Cardescenarios = ({ informacion }) => {
           <CCard className='mio-cardsalones' onClick={() => handleCardClick(salon)}>
             <CCardBody className=''>
               <CCardTitle>{salon.nombresalon}</CCardTitle>
-              <div className="mio-imagen-container">
+              <div className="mio-imagen-container" style={{display:'flex'}}>
                 {salon.dispositivos.map((dispositivo, dispositivoIndex) => (
                   <>
                   <CImage

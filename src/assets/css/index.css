@@ -199,11 +199,6 @@ body {
     width: 30px;
     margin-left: 10px;
   }
-<<<<<<< HEAD
-  :root {
-    --cui-sidebar-bg: #007bff; /* Cambia el valor a tu color deseado */
-  }
-=======
   .mio-sidebar{
     background-color: #a4130e;
     padding: '10px';
@@ -214,4 +209,3 @@ body {
     align-items: center; /* Centra verticalmente las imágenes */
   }
   
->>>>>>> c2609cc64217b74d8d067f9769464f3a60fd820d
