@@ -1,7 +1,7 @@
 import { CModal, CButton, CModalHeader, CModalTitle, CModalBody, CModalFooter, CCard, CCardBody, CImage ,CFormSwitch, CRow, CCol, CCardText} from '@coreui/react';
 import { useState, useEffect } from 'react';
 
-const Modaldetallesalon= ({show, handleClose, salonesdata})=>{
+const ModalDetalleSalon= ({show, handleClose, salonesdata})=>{
     const  [visible, setVisible] = useState(false);
     const [salon, setSalon] = useState(null);
     const [isSwitchCheckedaire, setIsSwitchCheckedaire] = useState(salonesdata.dispositivos[0].estado === 1);
@@ -60,4 +60,4 @@ return (
 )
 }
 
-export default Modaldetallesalon;
+export default ModalDetalleSalon;

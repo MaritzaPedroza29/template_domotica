@@ -1,11 +1,11 @@
 import { CContainer , CCardBody, CRow, CCol } from '@coreui/react'
-import  Rectangulo  from "../../components/inicio/rectaguloinicio";
+import  Rectangulo  from "../../components/inicio/Rectagulo";
 import { useState, useEffect} from "react";
-import  Cardbloques from "../../components/inicio/botonbloques";
+import  CardBloques from "../../components/inicio/BotonBloques";
 import salones from '../../connections/salones';
 
 
-const Inicio= ()=>{
+const AireAcondicionado= ()=>{
     const [selectedCard, setSelectedCard] = useState(null);
     const [salonesdata, setSalonesdata] = useState([]);
     useEffect(()=>{
@@ -21,7 +21,7 @@ const Inicio= ()=>{
                 <h3 className="text-center">Aire Acondicionado</h3>
                 <CCardBody className="text-center justify-content-center align-items-center">
                 <CRow md={4}>
-                    {salonesdata.map(salon => <CCol><Cardbloques key={salon.data.id} salones={salon}  onClick={handleCardClick}/></CCol>)}
+                    {salonesdata.map(salon => <CCol><CardBloques key={salon.data.id} salones={salon}  onClick={handleCardClick}/></CCol>)}
                 </CRow>
                 {selectedCard ? (
                     selectedCard.map((cardb) => <Rectangulo bloque={cardb}></Rectangulo>)
@@ -33,4 +33,4 @@ const Inicio= ()=>{
     )
 }
 
-export default Inicio
+export default AireAcondicionado

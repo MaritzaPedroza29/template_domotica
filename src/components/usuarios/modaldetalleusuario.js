@@ -3,7 +3,7 @@ import {CForm, CModalHeader, CModalTitle, CModalBody, CModalFooter, CFormInput, 
 import {CModal} from '@coreui/react';
 
 
-const Modaldetalleusuario= ({show, handleClose, userData, agregarUsuario, eliminarUsuarios,handleSwitchChange, actualizarUsuario})=>{
+const ModalDetalleUsuario= ({show, handleClose, userData, agregarUsuario, eliminarUsuarios,handleSwitchChange, actualizarUsuario})=>{
     const [disabled, setDisabled] = useState(true);
     const  [visible, setVisible] = useState(false)
     const [nuevoNombre, setNuevoNombre] = useState("");
@@ -118,4 +118,4 @@ const Modaldetalleusuario= ({show, handleClose, userData, agregarUsuario, elimin
         </CModal>
         );
 }
-export default Modaldetalleusuario;
+export default ModalDetalleUsuario;

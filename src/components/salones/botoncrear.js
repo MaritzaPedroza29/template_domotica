@@ -4,7 +4,7 @@ import * as icon from '@coreui/icons';
 //import { ModalCrearUsuario } from './modalcrearusuario';
 import { useState } from 'react';
 
-const Botoncrear= ({ abrirModal })=>{
+const BotonCrear= ({ abrirModal })=>{
     return(
         <div className='mio-botoncrear'>
             <CButton className='' onClick={abrirModal}>
@@ -14,4 +14,4 @@ const Botoncrear= ({ abrirModal })=>{
     )
 }
 
-export default Botoncrear;
+export default BotonCrear;

@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import {store} from '../states/store'
 
 const DefaultLayout = React.lazy(() => import('../layout/DefaultLayout'))
+const Login = React.lazy(() => import('../views/pages/Login'))
 
 const loading = (
   <div className="pt-3 text-center">
@@ -19,6 +20,7 @@ function App() {
       <BrowserRouter>
         <Suspense fallback={loading}>
           <Routes>
+            <Route path='/login' name="Login" element={<Login/>} />
             <Route path="*" name="Home" element={<DefaultLayout />} />
           </Routes>
         </Suspense>

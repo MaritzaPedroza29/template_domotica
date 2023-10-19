@@ -208,4 +208,10 @@ body {
     justify-content: space-between; /* Espacio igual entre las imágenes */
     align-items: center; /* Centra verticalmente las imágenes */
   }
+  .mio-logo{
+    background-color: #a4130e !important;
+  }
+  .mio-contenedordispositivos .contenedor{
+    text-align: center;
+  }
   

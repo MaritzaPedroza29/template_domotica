@@ -1,7 +1,7 @@
 import {  Card, CCol, CContainer, CRow } from "@coreui/react";
 import Dispositivos_data from "../../connections/dispositivos";
 import { useState, useEffect } from "react";
-import Carddispositivos from "../../components/dispositivos/carddispositivos";
+import CardDispositivos from "../../components/dispositivos/CardDispositivos";
 
  const Dispositivos= ()=> {
     const [dispositivosdata, setDispositivosdata] = useState([]);
@@ -22,14 +22,12 @@ import Carddispositivos from "../../components/dispositivos/carddispositivos";
     };
     
     return (
-        <>
-            <CContainer className="mt-3 mb-3">
+            <CContainer className="mt-3 mb-3 .mio-contenedordispositivos">
                 <h3 className="text-center">Dispositivos</h3>
-                <CRow>
-                    {dispositivosdata.map(dispositivo => <CCol><Carddispositivos key={dispositivo.id} dispositivos={dispositivo} onEditName={handleEditName}/></CCol>)}
+                <CRow className="justify-content-between">
+                    {dispositivosdata.map(dispositivo => <CCol><CardDispositivos key={dispositivo.id} dispositivos={dispositivo} onEditName={handleEditName}/></CCol>)}
                 </CRow>
             </CContainer>
-        </>
         
     )
 }

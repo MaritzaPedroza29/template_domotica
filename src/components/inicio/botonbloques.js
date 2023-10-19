@@ -1,8 +1,7 @@
-import { CButton, CCard, CCardBody } from '@coreui/react'
-import  Cardsalones from "./cardsalones";
-import { useState } from "react";
+import { CButton } from '@coreui/react'
 
-const Cardbloques= ({salones,  onClick })=>{
+
+const CardBloques= ({salones,  onClick })=>{
     
     console.log(salones);
     let bloques = '';
@@ -15,4 +14,4 @@ const Cardbloques= ({salones,  onClick })=>{
                 </div>
          );
 }
-export default Cardbloques;
+export default CardBloques;

@@ -3,7 +3,7 @@ import CIcon from '@coreui/icons-react';
 import * as icon from '@coreui/icons';
 import { useState } from 'react';
 
-const Botoncrear= ({abrirModal}) =>{
+const BotonCrear= ({abrirModal}) =>{
     console.log(abrirModal);
     return(
         <div className='mio-botoncrear'>
@@ -14,4 +14,4 @@ const Botoncrear= ({abrirModal}) =>{
     )
 }
 
-export default Botoncrear;
+export default BotonCrear;

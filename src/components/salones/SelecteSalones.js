@@ -1,7 +1,7 @@
 import { CFormSelect } from '@coreui/react'
 import { useState } from 'react';
 
-const Select= ({salones, opcionselect})=>{
+const SelectSalones= ({salones, opcionselect})=>{
     const [selectOption, setSelecteOption] = useState([]);
     console.log(salones);
 
@@ -29,4 +29,4 @@ const Select= ({salones, opcionselect})=>{
         </CFormSelect>
       );
 }
-export default Select;
+export default SelectSalones;

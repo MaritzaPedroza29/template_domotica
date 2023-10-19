@@ -3,10 +3,10 @@ import CIcon from '@coreui/icons-react';
 import * as icon from '@coreui/icons';
 import CForm from '@coreui/react';
 import { useState, useEffect } from "react";
-import Modaldetalleusuario  from "./modaldetalleusuario";
+import ModalDetalleUsuario  from "./Modaldetalleusuario";
 
 
-const Cardusuario= ({usuarios, eliminarUsuario, agregarUsuario, actualizarUsuario})=>{
+const CardUsuario= ({usuarios, eliminarUsuario, agregarUsuario, actualizarUsuario})=>{
     const [showModal, setShowModal] = useState(false);
     const [userData, setUserData] = useState([]);
     const [badgeClass, setBadgeClass] = useState(
@@ -62,7 +62,7 @@ const Cardusuario= ({usuarios, eliminarUsuario, agregarUsuario, actualizarUsuari
             </CCardBody>
         </CCard>
 
-        <Modaldetalleusuario
+        <ModalDetalleUsuario
           show={showModal}
           handleClose={handleCloseModal}
           userData={userData}
@@ -75,4 +75,4 @@ const Cardusuario= ({usuarios, eliminarUsuario, agregarUsuario, actualizarUsuari
     )
 }
 
-export default Cardusuario
+export default CardUsuario

@@ -1,8 +1,8 @@
 import { CCard, CButton, CCardBody, CCardTitle, CRow, CCol, CImage } from '@coreui/react';
 import '../../assets/css/index.css';
-import  Botonapagartelevisor from './botonapagartelevisor';
+import  BotonApagarTelevisor from './BotonApagarTelevisor';
 
-const Cardtelevisores= ({televisores})=>{
+const CardTelevisores= ({televisores})=>{
     return(
     <CRow className="justify-content-between">
         <CCol xs={4}>
@@ -10,11 +10,11 @@ const Cardtelevisores= ({televisores})=>{
                 <CCardBody>
                     <CImage src={televisores.televisor} alt="" className="mio-iconos" />
                     <CCardTitle>{televisores.nombre}</CCardTitle>
-                    <Botonapagartelevisor televisores={televisores}/>
+                    <BotonApagarTelevisor televisores={televisores}/>
                 </CCardBody>
             </CCard>
         </CCol>
     </CRow>
     )
 }
-export default Cardtelevisores;
+export default CardTelevisores;

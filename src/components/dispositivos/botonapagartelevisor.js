@@ -4,7 +4,7 @@ import {CButton} from '@coreui/react';
 import { useState, useEffect } from 'react';
 import "../../assets/css/index.css";
 
-const Botonapagartelevisor = ({ televisores}) => {
+const BotonApagarTelevisor = ({ televisores}) => {
   console.log(televisores);
 
   const [backgroundColor, setBackgroundColor] = useState('#ffffff'); // Estado para el color de fondo
@@ -33,4 +33,4 @@ const Botonapagartelevisor = ({ televisores}) => {
   );
 };
 
-export default Botonapagartelevisor;
+export default BotonApagarTelevisor;

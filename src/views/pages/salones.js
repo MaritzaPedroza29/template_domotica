@@ -1,10 +1,10 @@
 import { CCol, CContainer, CRow } from "@coreui/react";
-import Select from "../../components/salones/selectescenarios";
-import  Cardescenarios  from "../../components/salones/cardescenarios";
+import SelectSalones from "../../components/salones/SelecteSalones";
+import  CardSalones  from "../../components/salones/Cardsalones";
 import { useState, useEffect} from "react";
 import salones_bloques from "../../connections/salonesbloques";
-import Botoncrear  from "../../components/salones/botoncrear";
-import  Modalcrearsalon  from "../../components/salones/modalcrearsalon";
+import BotonCrear  from "../../components/salones/BotonCrear";
+import  ModalCrearSalon  from "../../components/salones/ModalCrearSalon";
 
 const Salones= ()=>{
     console.log(salones_bloques);
@@ -51,12 +51,12 @@ const Salones= ()=>{
         <>
             <CContainer className="mt-3 mb-3">
                 <h3 className="text-center">Salones</h3>
-                <Botoncrear abrirModal={abrirModal}></Botoncrear>
-                <Modalcrearsalon mostrarModal={mostrarModal} cerrarModal={cerrarModal} salones={salonesdata} agregarSalon={agregarSalones}></Modalcrearsalon>
-                <Select salones={salonesdata} opcionselect={opcionselect} className="mt-2"></Select>
+                <BotonCrear abrirModal={abrirModal}></BotonCrear>
+                <ModalCrearSalon mostrarModal={mostrarModal} cerrarModal={cerrarModal} salones={salonesdata} agregarSalon={agregarSalones}></ModalCrearSalon>
+                <SelectSalones salones={salonesdata} opcionselect={opcionselect} className="mt-2"></SelectSalones>
                 <CRow>
                 {selectedOptionInfo ? (
-                    selectedOptionInfo.map((selectinfo) =><CCol><Cardescenarios informacion={selectinfo}/></CCol>)
+                    selectedOptionInfo.map((selectinfo) =><CCol><CardSalones informacion={selectinfo}/></CCol>)
                 ) : (
                     <></> // Esto representa un fragmento vacío, es decir, no renderiza nada.
                 )}

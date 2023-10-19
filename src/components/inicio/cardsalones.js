@@ -1,7 +1,7 @@
-import Rectangulo from "./rectaguloinicio.js";
-const Cardsalones = ({salones})=>{
+import Rectangulo from "./Rectagulo.js";
+const CardSalones = ({salones})=>{
     return (
         <Rectangulo></Rectangulo>
      );
 } 
-export default Cardsalones;
+export default CardSalones;

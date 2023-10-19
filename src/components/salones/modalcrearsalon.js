@@ -1,7 +1,7 @@
 import { CModal, CForm, CButton, CListGroup, CModalHeader, CModalTitle, CModalBody, CFormLabel, CFormSelect, CListGroupItem, CFormCheck, CModalFooter, CFormInput} from '@coreui/react';
 import { useState } from 'react';
 
-const Modalcrearsalon= ({mostrarModal, cerrarModal, salones, agregarSalon})=>{
+const ModalCrearSalon= ({mostrarModal, cerrarModal, salones, agregarSalon})=>{
   console.log(salones);
     const [nuevoSalon, setNuevoSalon] = useState({
         nombre: "",
@@ -169,4 +169,4 @@ return(
 </CModal>
 )
 }
-export default Modalcrearsalon;
+export default ModalCrearSalon;

@@ -1,10 +1,10 @@
 import { CCard, CCol, CRow, CCardBody, CCardTitle, CBadge} from '@coreui/react';
 import { CImage } from '@coreui/react'
 import { useState } from 'react';
-import Modaldetallesalon from './modaldetallesalon';
+import ModalDetalleSalon from './ModalDetalleSalon';
 import '../../assets/css/index.css';
 
-const Cardescenarios = ({ informacion }) => {
+const CardSalones = ({ informacion }) => {
   const [showModal, setShowModal] = useState(false);
   const [salonesdata, setSalonesdata] = useState([]);
   const [selectedSalon, setSelectedSalon] = useState(null);
@@ -51,7 +51,7 @@ const Cardescenarios = ({ informacion }) => {
       ))}
     </CRow>
     {selectedSalon && ( // Mostrar componente solo si se ha seleccionado una tarjeta
-        <Modaldetallesalon
+        <ModalDetalleSalon
           show={showModal}
           handleClose={handleCloseModal}
           salonesdata={salonesdata}
@@ -62,4 +62,4 @@ const Cardescenarios = ({ informacion }) => {
 }
 
 
-export default Cardescenarios;
+export default CardSalones;

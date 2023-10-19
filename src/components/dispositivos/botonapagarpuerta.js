@@ -4,7 +4,7 @@ import {CButton} from '@coreui/react';
 import { useState, useEffect } from 'react';
 import "../../assets/css/index.css";
 
-const Botonapagarpuerta=({puertas})=>{
+const BotonApagarPuerta=({puertas})=>{
    const [backgroundColor, setBackgroundColor] = useState('#ffffff'); // Estado para el color de fondo
    useEffect(() => {
     if (puertas.estado === 1) {
@@ -29,4 +29,4 @@ const Botonapagarpuerta=({puertas})=>{
         </div>
       );
 }
-export default Botonapagarpuerta;
+export default BotonApagarPuerta;

@@ -1,5 +1,5 @@
 import {  Card, CCol, CContainer, CRow } from "@coreui/react";
-import Cardtelevisores from "../../components/dispositivos/cardtelevisores";
+import CardTelevisores from "../../components/dispositivos/CardTelevisores";
 import televisores from "../../connections/televisores";
 import { useState, useEffect } from "react";
 
@@ -14,7 +14,7 @@ const Televisor= ()=>{
             <CContainer className="mt-3 mb-3">
                 <h3 className="text-center">Televisores</h3>
                 <CRow>
-                    {televisoresdata.map(televisor => <CCol><Cardtelevisores key={televisor.id} televisores={televisor}/></CCol>)}
+                    {televisoresdata.map(televisor => <CCol><CardTelevisores key={televisor.id} televisores={televisor}/></CCol>)}
                 </CRow>
             </CContainer>
     )

@@ -1,8 +1,8 @@
 import { CCard, CButton, CCardBody, CCardTitle, CRow, CCol, CImage } from '@coreui/react';
 import '../../assets/css/index.css';
-import  Botonapagarpuerta from './botonapagarpuerta';
+import  BotonApagarPuerta from './BotonApagarPuerta';
 
-const Cardpuertas= ({puertas})=>{
+const CardPuertas= ({puertas})=>{
     return(
     <CRow className="justify-content-between">
         <CCol xs={4}>
@@ -10,11 +10,11 @@ const Cardpuertas= ({puertas})=>{
                 <CCardBody>
                     <CImage src={puertas.puerta} alt="" className="mio-iconos" />
                     <CCardTitle>{puertas.nombre}</CCardTitle>
-                    <Botonapagarpuerta puertas={puertas}/>
+                    <BotonApagarPuerta puertas={puertas}/>
                 </CCardBody>
             </CCard>
         </CCol>
     </CRow>
     )
 }
-export default Cardpuertas;
+export default CardPuertas;

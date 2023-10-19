@@ -4,7 +4,7 @@ import {CButton} from '@coreui/react';
 import { useState, useEffect } from 'react';
 import "../../assets/css/index.css";
 
-const Botonapagar = ({ dispositivos, salonIndex, dispositivoIndex, onToggleState }) => {
+const BotonApagar = ({ dispositivos, salonIndex, dispositivoIndex, onToggleState }) => {
   console.log(dispositivos);
   const dispositivo = dispositivos.data.salones[salonIndex].dispositivos[dispositivoIndex];
 
@@ -34,5 +34,5 @@ const Botonapagar = ({ dispositivos, salonIndex, dispositivoIndex, onToggleState
   );
 };
 
-export default Botonapagar;
+export default BotonApagar;
 

@@ -1,8 +1,8 @@
 import { CCol, CContainer, CRow } from "@coreui/react";
-import  Cardusuario from "../../components/usuarios/cardusuarios";
+import  CardUsuario from "../../components/usuarios/CardUsuarios";
 import { useState, useEffect } from "react";
-import  Botoncrear  from "../../components/usuarios/Botoncrear";
-import  ModalCrearUsuario  from "../../components/usuarios/modalcrearusuario";
+import  BotonCrear  from "../../components/usuarios/BotonCrear";
+import  ModalCrearUsuario  from "../../components/usuarios/Modalcrearusuario";
 import usuarios from "../../connections/usuarios";
 
 
@@ -49,10 +49,10 @@ return(
     <>
         <CContainer className="mt-3 mb-3">
         <h3 className="text-center">Usuarios</h3>
-            <Botoncrear abrirModal={abrirModal} ></Botoncrear>
+            <BotonCrear abrirModal={abrirModal} ></BotonCrear>
             <ModalCrearUsuario mostrarModal={mostrarModal} cerrarModal={cerrarModal} agregarUsuario={agregarUsuario} usuarios={usuarios}/>
             <CRow className="justify-content-md-center">
-                    {usuariosdata.map(usuario => <CCol sm="12" md="8" lg="6"><Cardusuario key={usuario.id} usuarios={usuario} eliminarUsuario={eliminarUsuario} agregarUsuario={agregarUsuario} actualizarUsuario={actualizarUsuario}/></CCol>)}
+                    {usuariosdata.map(usuario => <CCol sm="12" md="8" lg="6"><CardUsuario key={usuario.id} usuarios={usuario} eliminarUsuario={eliminarUsuario} agregarUsuario={agregarUsuario} actualizarUsuario={actualizarUsuario}/></CCol>)}
             </CRow>
         </CContainer>
     </>     

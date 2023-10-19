@@ -1,10 +1,10 @@
 import { CCard, CButton, CCardBody, CCardTitle, CRow, CCol } from '@coreui/react';
 import '../../assets/css/index.css';
-import  Botonapagar from './botonapagar';
+import  BotonApagar from './BotonApagar';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 
-const Carddispositivos= ({dispositivos, onEditName})=>{
+const CardDispositivos= ({dispositivos, onEditName})=>{
     const [isEditing, setIsEditing] = useState(false);
     const [editedName, setEditedName] = useState(dispositivos.nombre);
     const [dispositivosdata, setDispositivosdata] = useState(); // Tu array de dispositivos
@@ -36,15 +36,15 @@ const Carddispositivos= ({dispositivos, onEditName})=>{
       };
     console.log(dispositivos);
     return (
-      <CRow className="justify-content-between">
+      <CRow>
       {dispositivos.data.salones.map((salon, salonIndex) =>
         salon.dispositivos.map((dispositivo, dispositivoIndex) => (
-          <CCol xs={4}>
+          <CCol>
           <CCard key={dispositivo.id} className='mio-carddispositivos'>
             <CCardBody>
               <img src={dispositivo.imagen} alt="" className="mio-iconos" />
               <CCardTitle onClick={handleNameClick}>{dispositivo.nombre}</CCardTitle>
-              <Botonapagar dispositivos={dispositivos} salonIndex={salonIndex}
+              <BotonApagar dispositivos={dispositivos} salonIndex={salonIndex}
               dispositivoIndex={dispositivoIndex}
               onToggleState={toggleDeviceState} />
             </CCardBody>
@@ -55,4 +55,4 @@ const Carddispositivos= ({dispositivos, onEditName})=>{
     </CRow>
       );
 }
-export default Carddispositivos;
+export default CardDispositivos;

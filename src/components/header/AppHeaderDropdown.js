@@ -30,7 +30,7 @@ const AppHeaderDropdown = () => {
             Perfil
         </CDropdownItem>
          <CDropdownDivider />
-        <CDropdownItem href="#">
+        <CDropdownItem href="/login">
           <CIcon icon={cilAccountLogout} className="me-2" />
           Salir
         </CDropdownItem>

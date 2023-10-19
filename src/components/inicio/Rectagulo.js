@@ -2,7 +2,7 @@ import React from 'react';
 import { CCard, CCol, CRow, CCardBody } from'@coreui/react';
 import { CTooltip } from '@coreui/react'
 import '../../assets/css/index.css';
-import Cuadrado from './cuadradoinicio';
+import Cuadrado from './Cuadrado';
 import CButton from '@coreui/react';
 
 const Rectangulo= ({bloque}) =>{
