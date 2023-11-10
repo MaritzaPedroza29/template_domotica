@@ -9,12 +9,6 @@ import ModalDetalleUsuario  from "./Modaldetalleusuario";
 const CardUsuario= ({usuarios, eliminarUsuario, agregarUsuario, actualizarUsuario})=>{
     const [showModal, setShowModal] = useState(false);
     const [userData, setUserData] = useState([]);
-    const [badgeClass, setBadgeClass] = useState(
-      usuarios.data.estado === "1" ? "success" : "danger"
-    );
-    const [badgeText, setBadgeText] = useState(
-      usuarios.data.estado === "1" ? "Activo" : "Inactivo"
-    );
     useEffect(()=>{
       setUserData(usuarios);
     }, []);
@@ -31,33 +25,18 @@ const CardUsuario= ({usuarios, eliminarUsuario, agregarUsuario, actualizarUsuari
         setShowModal(false);
       };
 
-      const handleSwitchChange = (newSwitchValue) => {
-        console.log(newSwitchValue);
-        const newBadgeClass = newSwitchValue === "1" ? "success" : "danger";
-        const newBadgeText = newSwitchValue === "1" ? "Activo" : "Inactivo";
-    
-        setBadgeClass(newBadgeClass);
-        setBadgeText(newBadgeText);
-      };
+      
       
     return(
         <>
         <CCard className="mt-3 mb-3 mio-contenedor" onClick={handleCardClick}>
             <CCardBody>
-                <img
-                    src={usuarios.data.imagen}
-                    alt=""
-                    className='mio-cardimagen'
-                />
-                <CCardTitle>{usuarios.data.nombre}</CCardTitle>
-                <CCardText>{usuarios.data.correo}</CCardText>
+                <CCardTitle>{usuarios.nombre}</CCardTitle>
+                <CCardText>{usuarios.correo}</CCardText>
                 <div className="mio-botoneliminar">
                     <CButton variant="danger" className="" onClick={handleClick}>
                         <CIcon icon={icon.cilX} /> 
                     </CButton>
-                </div>
-                <div className="mio-switch">
-                  <CBadge color={badgeClass}>{badgeText}</CBadge>
                 </div>
             </CCardBody>
         </CCard>
@@ -68,7 +47,6 @@ const CardUsuario= ({usuarios, eliminarUsuario, agregarUsuario, actualizarUsuari
           userData={userData}
           agregarUsuario = {agregarUsuario}
           eliminarUsuarios = {eliminarUsuario}
-          handleSwitchChange={handleSwitchChange}
           actualizarUsuario={actualizarUsuario}
         />
       </>

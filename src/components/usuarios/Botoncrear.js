@@ -4,7 +4,6 @@ import * as icon from '@coreui/icons';
 import { useState } from 'react';
 
 const BotonCrear= ({abrirModal}) =>{
-    console.log(abrirModal);
     return(
         <div className='mio-botoncrear'>
             <CButton className='' onClick={abrirModal}>

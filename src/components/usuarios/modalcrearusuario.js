@@ -10,22 +10,18 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
   const [nuevoUsuario, setNuevoUsuario] = useState({
     nombre: "",
     correo: "",
-    imagenURL: null,
+    clave: "",
   });
   const agregarusuario = () => {
-    if (!nuevoUsuario.nombre.trim() || !nuevoUsuario.correo.trim()) {
+    if (!nuevoUsuario.nombre.trim() || !nuevoUsuario.correo.trim() || !nuevoUsuario.clave.trim()) {
       return;
     }
 
     // Genera un nuevo usuario con los datos proporcionados
     const nuevoUsuarioData = {
-      usuario: "Usuario" + (usuarios.length + 1),
-      data: {
-        id: usuarios.length + 1,
-        imagen: nuevoUsuario.imagenURL,
         nombre: nuevoUsuario.nombre,
         correo: nuevoUsuario.correo,
-      },
+        clave: nuevoUsuario.clave
     };
 
     agregarUsuario(nuevoUsuarioData);
@@ -33,7 +29,7 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
     setNuevoUsuario({
       nombre: "",
       correo: "",
-      imagenURL: null,
+      clave: "",
     });
     <CAlert color="success">
       Usuario creado exitosamente
@@ -92,12 +88,11 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
               <CFormInput
                 type="password"
                 placeholder="Ingrese su contraseña"
+                onChange={(e) =>
+                  setNuevoUsuario({ ...nuevoUsuario, clave: e.target.value })
+                }
               />
             </div>
-            <CInputGroup>
-              <CFormInput type="file" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onChange={handleFileChange}/>
-              <CButton type="button" color="secondary" variant="outline" id="inputGroupFileAddon04" onClick={() => console.log(archivoSeleccionado ? archivoSeleccionado.name : 'Ningún archivo seleccionado')}>Guardar</CButton>
-            </CInputGroup>
           </CModalBody>
           <CModalFooter>
             <CButton  type="submit" color="success">Guardar</CButton>

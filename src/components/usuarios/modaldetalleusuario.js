@@ -11,20 +11,17 @@ const ModalDetalleUsuario= ({show, handleClose, userData, agregarUsuario, elimin
     const [switchValue, setSwitchValue] = useState("");
 
     console.log(userData);
-    console.log(switchValue);
+    console.log(show);
     let correo = ''; // Declarar correo fuera del bloque if
     let nombre = ''; // Declarar nombre fuera del bloque if
     let usuario = '';
     let idusuario = '';
-    let imagen = '';
-    if (userData && userData.data) {
+    if (userData) {
         // Accede a userData.data aquí
-        correo = userData.data.correo;
-        nombre = userData.data.nombre;
+        correo = userData.correo;
+        nombre = userData.nombre;
         usuario = userData.usuario;
-        idusuario = userData.data.id;
-        imagen = userData.data.imagen;
-        console.log(imagen);
+        idusuario = userData.idusuario;
         // ...
       } else {
         // Maneja el caso en que userData o userData.data sea nulo
@@ -42,7 +39,6 @@ const ModalDetalleUsuario= ({show, handleClose, userData, agregarUsuario, elimin
             usuario: usuario,
             data: {
               id: idusuario,
-              imagen: imagen,
               nombre: nuevoNombre,
               correo: nuevoCorreo,
               estado: switchValue // Agrega el estado del switch al usuario
@@ -56,16 +52,7 @@ const ModalDetalleUsuario= ({show, handleClose, userData, agregarUsuario, elimin
         };
         
       const handleClick = () => {
-        eliminarUsuarios(userData.data.id);
-      };
-
-      const handleSwitchToggle = () => {
-        // Realiza las acciones necesarias al cambiar el switch
-        const newSwitchValue = switchValue === "1" ? "2" : "1";
-        setSwitchValue(newSwitchValue);
-        
-        // Llama a la función para actualizar el estado en Cardusuario
-        handleSwitchChange(newSwitchValue);
+        eliminarUsuarios(userData.idusuario);
       };
 
       const handleSubmit = (e) => {
@@ -99,14 +86,6 @@ const ModalDetalleUsuario= ({show, handleClose, userData, agregarUsuario, elimin
                   onChange={(e) => setNuevoCorreo(e.target.value)}
                   onClick={() => setDisabled(false)}
                 />
-              </div>
-              <div>
-                <CFormText component="span" id="exampleFormControlInputHelpInline">
-                  Activo / Inactivo
-                </CFormText>
-                <>
-                  <CFormSwitch  id="formSwitchCheckDefaultNormal" checked={switchValue === "1"} onChange={handleSwitchToggle}/>
-                </>
               </div>
             </CModalBody>
             <CModalFooter>
