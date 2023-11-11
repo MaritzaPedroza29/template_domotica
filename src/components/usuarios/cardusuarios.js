@@ -31,6 +31,11 @@ const CardUsuario= ({usuarios, eliminarUsuario, agregarUsuario, actualizarUsuari
         <>
         <CCard className="mt-3 mb-3 mio-contenedor" onClick={handleCardClick}>
             <CCardBody>
+              <img
+                    src={usuarios.imagen}
+                    alt=""
+                    className='mio-cardimagen'
+                />
                 <CCardTitle>{usuarios.nombre}</CCardTitle>
                 <CCardText>{usuarios.correo}</CCardText>
                 <div className="mio-botoneliminar">

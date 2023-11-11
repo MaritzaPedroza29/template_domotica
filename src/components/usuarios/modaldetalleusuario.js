@@ -36,13 +36,9 @@ const ModalDetalleUsuario= ({show, handleClose, userData, agregarUsuario, elimin
       
           // Genera un nuevo usuario con los datos proporcionados
           const nuevoUsuarioData = {
-            usuario: usuario,
-            data: {
-              id: idusuario,
+              idusuario: idusuario,
               nombre: nuevoNombre,
               correo: nuevoCorreo,
-              estado: switchValue // Agrega el estado del switch al usuario
-            },
           };
       
           // Llama a la función updateUser para actualizar el usuario en el componente principal

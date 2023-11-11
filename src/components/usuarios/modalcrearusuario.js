@@ -11,6 +11,7 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
     nombre: "",
     correo: "",
     clave: "",
+    imagenURL: "",
   });
   const agregarusuario = () => {
     if (!nuevoUsuario.nombre.trim() || !nuevoUsuario.correo.trim() || !nuevoUsuario.clave.trim()) {
@@ -21,7 +22,8 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
     const nuevoUsuarioData = {
         nombre: nuevoUsuario.nombre,
         correo: nuevoUsuario.correo,
-        clave: nuevoUsuario.clave
+        clave: nuevoUsuario.clave,
+        imagen: nuevoUsuario.imagenURL
     };
 
     agregarUsuario(nuevoUsuarioData);
@@ -30,6 +32,7 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
       nombre: "",
       correo: "",
       clave: "",
+      imagenURL: ""
     });
     <CAlert color="success">
       Usuario creado exitosamente
@@ -38,11 +41,27 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
 
   const handleFileChange = (e) => {
     const archivo = e.target.files[0]; // Obtiene el archivo seleccionado
+    
+    // Crea una instancia de FileReader
+    const reader = new FileReader();
+
+    // Configura el evento load para ejecutar cuando la lectura esté completa
+    reader.onloadend = () => {
+      // La URL del archivo local se encuentra en reader.result
+      const imagenURL = reader.result;
+      console.log(imagenURL);
+      setNuevoUsuario({ ...nuevoUsuario, imagenURL });
+    };
+
+    // Lee el archivo como una URL de datos
+    reader.readAsDataURL(archivo);
+
     setArchivoSeleccionado(archivo);
 
     // Genera una URL de objeto a partir del archivo seleccionado
-    const imagenURL = URL.createObjectURL(archivo);
-    setNuevoUsuario({ ...nuevoUsuario, imagenURL });
+    /*const imagenURL = URL.createObjectURL(archivo);
+    console.log(imagenURL);
+    setNuevoUsuario({ ...nuevoUsuario, imagenURL });*/
   };
 
   const handleSubmit = (e) => {
@@ -93,6 +112,10 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
                 }
               />
             </div>
+            <CInputGroup>
+              <CFormInput type="file" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onChange={handleFileChange}/>
+              <CButton type="button" color="secondary" variant="outline" id="inputGroupFileAddon04" onClick={() => console.log(archivoSeleccionado ? archivoSeleccionado.name : 'Ningún archivo seleccionado')}>Guardar</CButton>
+            </CInputGroup>
           </CModalBody>
           <CModalFooter>
             <CButton  type="submit" color="success">Guardar</CButton>

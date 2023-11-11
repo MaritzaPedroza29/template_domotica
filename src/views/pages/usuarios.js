@@ -6,6 +6,7 @@ import  ModalCrearUsuario  from "../../components/usuarios/Modalcrearusuario";
 import {SIGNUP_GET_ENDPOINT} from "../../connections/helpers/endpoints";
 import { CREARUSUARIOS_POST_ENDPOINT } from "../../connections/helpers/endpoints";
 import { ELIMINARUSUARIOS_DELETE_ENDPOINT } from "../../connections/helpers/endpoints";
+import { ACTUALIZARUSUARIO_PATCH_ENDPOINT } from "../../connections/helpers/endpoints";
 import axios from "axios";
 
 
@@ -39,6 +40,7 @@ const Usuarios= ()=>{
 
       axios.post(CREARUSUARIOS_POST_ENDPOINT,(nuevoUsuario)
       ).then(response=>{
+        //setUsuariosData(response.data);
           console.log(response);
       })
       .catch(error=>{
@@ -49,32 +51,25 @@ const Usuarios= ()=>{
       const eliminarUsuario = async (id) => {
         axios.delete(`${ELIMINARUSUARIOS_DELETE_ENDPOINT}/${id}`)
         .then(respuesta=>{
+          //setUsuariosData(respuesta.data);
           console.log(respuesta);
         })
         .catch(err=>{
           console.error(err);
         })
-        console.log(id);
-        /*const index = usuariosdata.findIndex((usuario) => usuario.data.id === id);
-        if (index !== -1) {
-          const nuevosUsuarios = [...usuariosdata];
-          nuevosUsuarios.splice(index, 1);
-          setUsuariosData(nuevosUsuarios);
-        }*/
       };
-      const actualizarUsuario= (nuevoUsuario) => {
+      const actualizarUsuario= async (nuevoUsuario) => {
         console.log(nuevoUsuario);
-        // Encuentra el índice del usuario actual en tu arreglo de usuarios
-        const userIndex = usuariosdata.findIndex((usuario) => usuario.data.id === nuevoUsuario.data.id);
-        console.log(userIndex);
-        if (userIndex !== -1) {
-          // Clona el arreglo de usuarios para evitar mutaciones
-          const updatedUsers = [...usuariosdata];
-          // Actualiza el usuario en el arreglo
-          updatedUsers[userIndex] = nuevoUsuario;
-          // Llama a la función para actualizar el usuario en el componente principal
-          setUsuariosData(updatedUsers);
-        }
+        let id = '';
+        id = nuevoUsuario.idusuario;
+        axios.patch(`${ACTUALIZARUSUARIO_PATCH_ENDPOINT}/${id}`,nuevoUsuario)
+        .then(respuesta=>{
+          //setUsuariosData(respuesta.data);
+          console.log(respuesta);
+        })
+        .catch(err=>{
+          console.error(err);
+        })
       };
     const abrirModal = () => {
         setMostrarModal(true);

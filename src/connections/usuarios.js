@@ -50,7 +50,7 @@ const usuarios = [
         "usuario": "Usuario5",
         "data": {
             "id": 5,
-          "imagen": usuario5,
+          "imagen": Usuario6,
           "nombre": "Maria Fernandez",
           "correo": "est_mf_fernandez@fesc.edu.co",
           "estado": "2"
@@ -60,7 +60,7 @@ const usuarios = [
         "usuario": "Usuario6",
         "data": {
           "id": 6,
-          "imagen": Usuario6,
+          "imagen": Usuario5,
           "nombre": "Darwin Cardozo",
           "correo": "doc_da_cardozo@fesc.edu.co",
           "estado":"2"

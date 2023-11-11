@@ -2,7 +2,8 @@ const API_URL="http://localhost:3000/"
 
 export const SIGNUP_GET_ENDPOINT= API_URL+"user";
 export const CREARUSUARIOS_POST_ENDPOINT= API_URL+"user";
-export const ELIMINARUSUARIOS_DELETE_ENDPOINT= API_URL+"user"
+export const ELIMINARUSUARIOS_DELETE_ENDPOINT= API_URL+"user";
+export const ACTUALIZARUSUARIO_PATCH_ENDPOINT= API_URL+"user";
 /*export const SIGIN_POST_ENDPOINT= API_URL+"/usuario/login"
 export const MISPARTIDOS_GET_ENDPOINT= API_URL+"/usuario/mispartidos";
 export const CREARPARTIDO_POST_ENDPOINT= API_URL+"/partido";

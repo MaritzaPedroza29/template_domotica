@@ -84,9 +84,13 @@ body {
     border: 1px solid black;
   }
   .mio-cardimagen{
-    width: 100px; 
+    width: 70px; 
+    height: 70px;
     float: left;
     margin-right: 10px;
+    border-radius: 50%; 
+    overflow: hidden; 
+    display: block;
   }
   .mio-botoncrear .btn{
     background-color: #a4130e;
