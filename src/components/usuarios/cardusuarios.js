@@ -4,6 +4,8 @@ import * as icon from '@coreui/icons';
 import CForm from '@coreui/react';
 import { useState, useEffect } from "react";
 import ModalDetalleUsuario  from "./Modaldetalleusuario";
+import image from "../../assets/images/usuarios/user.png"
+
 
 
 const CardUsuario= ({usuarios, eliminarUsuario, agregarUsuario, actualizarUsuario})=>{
@@ -32,7 +34,7 @@ const CardUsuario= ({usuarios, eliminarUsuario, agregarUsuario, actualizarUsuari
         <CCard className="mt-3 mb-3 mio-contenedor" onClick={handleCardClick}>
             <CCardBody>
               <img
-                    src={usuarios.imagen}
+                    src={`http://localhost:3001/static/media/${usuarios.imagen}`}
                     alt=""
                     className='mio-cardimagen'
                 />

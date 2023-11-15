@@ -2,7 +2,7 @@ import usuario1 from "../assets/images/usuarios/profesora1.png";
 import usuario2 from "../assets/images/usuarios/profesor2.png";
 import usuario3 from "../assets/images/usuarios/profesora3.png";
 import usuario4 from "../assets/images/usuarios/profesor4.png";
-import usuario5 from "../assets/images/usuarios/profesor5.png";
+import usuario5 from "../assets/images/usuarios/profesor5.png"
 import Usuario6 from "../assets/images/usuarios/profesora6.png";
 import usuario7 from "../assets/images/usuarios/user.png";
 const usuarios = [
@@ -60,7 +60,7 @@ const usuarios = [
         "usuario": "Usuario6",
         "data": {
           "id": 6,
-          "imagen": Usuario5,
+          "imagen": usuario5,
           "nombre": "Darwin Cardozo",
           "correo": "doc_da_cardozo@fesc.edu.co",
           "estado":"2"

@@ -11,8 +11,9 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
     nombre: "",
     correo: "",
     clave: "",
-    imagenURL: "",
+    nombreUnico: "",
   });
+  console.log(nuevoUsuario);
   const agregarusuario = () => {
     if (!nuevoUsuario.nombre.trim() || !nuevoUsuario.correo.trim() || !nuevoUsuario.clave.trim()) {
       return;
@@ -23,7 +24,7 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
         nombre: nuevoUsuario.nombre,
         correo: nuevoUsuario.correo,
         clave: nuevoUsuario.clave,
-        imagen: nuevoUsuario.imagenURL
+        imagen: nuevoUsuario.nombreUnico
     };
 
     agregarUsuario(nuevoUsuarioData);
@@ -32,7 +33,7 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
       nombre: "",
       correo: "",
       clave: "",
-      imagenURL: ""
+      nombreUnico: ""
     });
     <CAlert color="success">
       Usuario creado exitosamente
@@ -41,7 +42,13 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
 
   const handleFileChange = (e) => {
     const archivo = e.target.files[0]; // Obtiene el archivo seleccionado
-    
+
+    // Obtener la extensión del archivo original
+  const extension = archivo.name.split('.').pop();
+
+  // Generar un nombre único utilizando la fecha actual y un hash aleatorio
+  let nombreUnico = `user.5faf09a7795d28bf5a2b.${extension}`;
+  console.log(nombreUnico);
     // Crea una instancia de FileReader
     const reader = new FileReader();
 
@@ -50,7 +57,7 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
       // La URL del archivo local se encuentra en reader.result
       const imagenURL = reader.result;
       console.log(imagenURL);
-      setNuevoUsuario({ ...nuevoUsuario, imagenURL });
+      setNuevoUsuario({ ...nuevoUsuario, nombreUnico });
     };
 
     // Lee el archivo como una URL de datos

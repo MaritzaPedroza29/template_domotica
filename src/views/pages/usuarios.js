@@ -7,6 +7,7 @@ import {SIGNUP_GET_ENDPOINT} from "../../connections/helpers/endpoints";
 import { CREARUSUARIOS_POST_ENDPOINT } from "../../connections/helpers/endpoints";
 import { ELIMINARUSUARIOS_DELETE_ENDPOINT } from "../../connections/helpers/endpoints";
 import { ACTUALIZARUSUARIO_PATCH_ENDPOINT } from "../../connections/helpers/endpoints";
+import usuarios from "../../connections/usuarios";
 import axios from "axios";
 
 
@@ -14,7 +15,7 @@ const Usuarios= ()=>{
   const [mostrarModal, setMostrarModal] = useState(false);
   const [errores, setErrores]= useState({});
   const [usuariosdata, setUsuariosData] = useState([]);
-  
+
   const fetchData = async () => {
     try {
       console.log("llama a la función");
@@ -40,6 +41,7 @@ const Usuarios= ()=>{
 
       axios.post(CREARUSUARIOS_POST_ENDPOINT,(nuevoUsuario)
       ).then(response=>{
+        fetchData();
         //setUsuariosData(response.data);
           console.log(response);
       })
@@ -49,8 +51,10 @@ const Usuarios= ()=>{
     };
     
       const eliminarUsuario = async (id) => {
+        console.log(id);
         axios.delete(`${ELIMINARUSUARIOS_DELETE_ENDPOINT}/${id}`)
         .then(respuesta=>{
+          fetchData();
           //setUsuariosData(respuesta.data);
           console.log(respuesta);
         })
@@ -64,7 +68,7 @@ const Usuarios= ()=>{
         id = nuevoUsuario.idusuario;
         axios.patch(`${ACTUALIZARUSUARIO_PATCH_ENDPOINT}/${id}`,nuevoUsuario)
         .then(respuesta=>{
-          //setUsuariosData(respuesta.data);
+          fetchData();
           console.log(respuesta);
         })
         .catch(err=>{
