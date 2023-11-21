@@ -2,20 +2,28 @@ import { CCard, CButton, CCardBody, CCardTitle, CCardHeader, CCardText, CImage }
 import CIcon from '@coreui/icons-react';
 import * as icon from '@coreui/icons';
 import "../../assets/css/index.css";
-import miimagen from "../../assets/images/aireacondicionado.png";
+import miimagen from "../../assets/images/dispositivos/aireacondicionado.png";
 
-const CardSalon= ({})=>{
+const CardSalon= ({ salon, dispositivo})=>{
+    console.log(dispositivo[0].vatios);
     return(
-        <CCard>
-            <CCardHeader>B105</CCardHeader>
+        <CCard className='mio-cardsalones'>
+            <CCardHeader>{salon.nombre_salon}
+            <CIcon icon={icon.cilUser} width={30}/>
+            </CCardHeader>
             <CCardBody>
-                <CIcon icon={icon.cilUser} />
-                <div className=''>
-                    <CIcon icon={icon.cilTv} />
-                    <CCardText>38.5w</CCardText>
-                    <CImage src={miimagen} width={30}/>
-                    <CCardText>25C°</CCardText>
+                {dispositivo.map((dispositivo, index) => (
+                <div key={index} className="d-flex justify-content-between align-items-center">
+                    <div className="d-flex flex-column align-items-center">
+                    <CIcon icon={icon.cilTv} width={30} className="mr-3" />
+                    <CCardText>{dispositivo.vatios}</CCardText>
+                    </div>
+                    <div className="d-flex flex-column align-items-center">
+                        <CImage src={miimagen} width={30} className="mr-10" />
+                        <CCardText>{dispositivo.temperatura}</CCardText>
+                    </div>
                 </div>
+                ))}
             </CCardBody>
         </CCard>
     )

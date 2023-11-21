@@ -1,4 +1,9 @@
 import { CCol, CContainer, CRow } from "@coreui/react";
+import { OBTENERSALONES_GET_ENDPOINT } from "../../connections/helpers/endpoints";
+import { OBTENERIDDISPOSITIVOS_GET_ENDPOINT } from "../../connections/helpers/endpoints";
+import { OBTENERINFODISPOSITIVOS_GET_ENDPOINT } from "../../connections/helpers/endpoints";
+import CardSalon from "../../components/salones/Cardsalon";
+import axios from "axios";
 import SelectSalones from "../../components/salones/SelecteSalones";
 import  CardSalones  from "../../components/salones/Cardsalones";
 import { useState, useEffect} from "react";
@@ -7,13 +12,43 @@ import BotonCrear  from "../../components/salones/BotonCrear";
 import  ModalCrearSalon  from "../../components/salones/ModalCrearSalon";
 
 const Salones= ()=>{
-    console.log(salones_bloques);
     const [selectedOptionInfo, setSelectedOptionInfo] = useState([]);
     const [mostrarModal, setMostrarModal] = useState(false);
-    const [salonesdata, setSalonesdata] = useState(salones_bloques);
+    const [salones, setSalones] = useState([]);
+    const [dispositivos, setDispositivos] = useState([]);
 
-    console.log(salonesdata);
-    const opcionselect = (salonesSeleccionados) => {
+    
+    useEffect(()=>{
+        axios.get(OBTENERSALONES_GET_ENDPOINT)
+        .then(response=>{
+            setSalones(response.data);
+        })
+        .catch(err=>{
+            console.error(err);
+        })
+    }, []);
+    console.log(salones);
+    useEffect(()=>{
+        axios.get(OBTENERIDDISPOSITIVOS_GET_ENDPOINT)
+        .then(response=>{
+            //setDispositivos(response.data);
+        })
+        .catch(err=>{
+            console.error(err);
+        })
+    }, []);
+
+    useEffect(()=>{
+        axios.get(OBTENERINFODISPOSITIVOS_GET_ENDPOINT)
+        .then(response=>{
+            setDispositivos(response.data);
+        })
+        .catch(err=>{
+            console.error(err);
+        })
+    }, []);
+    console.log(dispositivos);
+    /*const opcionselect = (salonesSeleccionados) => {
         console.log(salonesSeleccionados);
         setSelectedOptionInfo(salonesSeleccionados);
     };
@@ -46,20 +81,13 @@ const Salones= ()=>{
     
       const cerrarModal = () => {
         setMostrarModal(false);
-      };    
+      }; */   
     return(
         <>
             <CContainer className="mt-3 mb-3">
                 <h3 className="text-center">Salones</h3>
-                <BotonCrear abrirModal={abrirModal}></BotonCrear>
-                <ModalCrearSalon mostrarModal={mostrarModal} cerrarModal={cerrarModal} salones={salonesdata} agregarSalon={agregarSalones}></ModalCrearSalon>
-                <SelectSalones salones={salonesdata} opcionselect={opcionselect} className="mt-2"></SelectSalones>
                 <CRow>
-                {selectedOptionInfo ? (
-                    selectedOptionInfo.map((selectinfo) =><CCol><CardSalones informacion={selectinfo}/></CCol>)
-                ) : (
-                    <></> // Esto representa un fragmento vacío, es decir, no renderiza nada.
-                )}
+                    {salones.map((salon) =><CCol><CardSalon salon={salon} dispositivo={dispositivos}/></CCol>)}
                 </CRow>
             </CContainer>
         </>
