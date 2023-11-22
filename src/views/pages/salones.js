@@ -15,6 +15,7 @@ const Salones= ()=>{
     const [selectedOptionInfo, setSelectedOptionInfo] = useState([]);
     const [mostrarModal, setMostrarModal] = useState(false);
     const [salones, setSalones] = useState([]);
+    const [iddispositivos, setIddispositivos] = useState([]);
     const [dispositivos, setDispositivos] = useState([]);
 
     
@@ -31,7 +32,7 @@ const Salones= ()=>{
     useEffect(()=>{
         axios.get(OBTENERIDDISPOSITIVOS_GET_ENDPOINT)
         .then(response=>{
-            //setDispositivos(response.data);
+            setIddispositivos(response.data);
         })
         .catch(err=>{
             console.error(err);
@@ -87,7 +88,7 @@ const Salones= ()=>{
             <CContainer className="mt-3 mb-3">
                 <h3 className="text-center">Salones</h3>
                 <CRow>
-                    {salones.map((salon) =><CCol><CardSalon salon={salon} dispositivo={dispositivos}/></CCol>)}
+                    {salones.map((salon) =><CCol><CardSalon salon={salon} dispositivo={dispositivos} iddispositivos={iddispositivos}/></CCol>)}
                 </CRow>
             </CContainer>
         </>

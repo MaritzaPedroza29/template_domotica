@@ -8,6 +8,7 @@ export const OBTENERIDDISPOSITIVOS_GET_ENDPOINT= API_URL+"dispositivos";
 export const OBTENERSALONES_GET_ENDPOINT= API_URL+"salones";
 export const OBTENERINFODISPOSITIVOS_GET_ENDPOINT= API_URL+"dispositivos/datadevice"
 export const APIDEVICE_POST_ENDPOINT = API_URL+"switchbot/send-command";
+export const COMANDOS_POST_ENDPOINT =  API_URL+"dispositivos/comando";
 /*export const SIGIN_POST_ENDPOINT= API_URL+"/usuario/login"
 export const MISPARTIDOS_GET_ENDPOINT= API_URL+"/usuario/mispartidos";
 export const CREARPARTIDO_POST_ENDPOINT= API_URL+"/partido";

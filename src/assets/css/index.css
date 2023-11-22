@@ -171,16 +171,14 @@ body {
     margin-right: 2px;
   }
   .mio-boton-redondo .btn{
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%; /* Aplica un radio de 50% para hacer el botón redondo */
     background-color: #ffffff; /* Color de fondo del botón */
     color: #000000; /* Color del texto */
     font-size: 16px;
     border: 1px solid #000000; /* Quita el borde */
     cursor: pointer;
-    float: right;
-    margin-top: -70px;
   }
   .mio-carddispositivos{
     width: 200px;
@@ -218,4 +216,14 @@ body {
   .mio-contenedordispositivos .contenedor{
     text-align: center;
   }
+  .mio-cardsalon.card{
+    width: 200px;
+    margin: 20px 0px 10px 0px;
+    justify-content:space-between;
+    border: 2px solid #000000; 
+  }
+.mio-iconoapagar{
+  text-align: center;
+  margin-top: -40px;
   
+}
