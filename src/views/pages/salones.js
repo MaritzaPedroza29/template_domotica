@@ -8,8 +8,8 @@ import SelectSalones from "../../components/salones/SelecteSalones";
 import  CardSalones  from "../../components/salones/Cardsalones";
 import { useState, useEffect} from "react";
 import salones_bloques from "../../connections/salonesbloques";
-import BotonCrear  from "../../components/salones/botoncrear";
-import  ModalCrearSalon  from "../../components/salones/modalcrearsalon";
+import BotonCrear  from "../../components/salones/BotonCrear";
+import  ModalCrearSalon  from "../../components/salones/ModalCrearSalon";
 
 const Salones= ()=>{
     const [selectedOptionInfo, setSelectedOptionInfo] = useState([]);
@@ -18,7 +18,7 @@ const Salones= ()=>{
     const [iddispositivos, setIddispositivos] = useState([]);
     const [dispositivos, setDispositivos] = useState([]);
 
-    
+   
     useEffect(()=>{
         axios.get(OBTENERSALONES_GET_ENDPOINT)
         .then(response=>{
@@ -39,7 +39,7 @@ const Salones= ()=>{
         })
     }, []);
 
-    useEffect(()=>{
+    const obtenerinfodispositivos = () => {
         axios.get(OBTENERINFODISPOSITIVOS_GET_ENDPOINT)
         .then(response=>{
             setDispositivos(response.data);
@@ -47,7 +47,11 @@ const Salones= ()=>{
         .catch(err=>{
             console.error(err);
         })
-    }, []);
+        console.log("Obteniendo información de dispositivos...");
+    };
+    useEffect(() => {
+        obtenerinfodispositivos();
+      }, []); // Llamar a fetchData cuando el componente monta
     console.log(dispositivos);
     /*const opcionselect = (salonesSeleccionados) => {
         console.log(salonesSeleccionados);

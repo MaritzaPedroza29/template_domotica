@@ -1,7 +1,7 @@
 import { CContainer , CCardBody, CRow, CCol } from '@coreui/react'
 import  Rectangulo  from "../../components/inicio/Rectagulo";
 import { useState, useEffect} from "react";
-import  CardBloques from "../../components/inicio/botonbloques";
+import  CardBloques from "../../components/inicio/BotonBloques";
 import salones from '../../connections/salones';
 
 

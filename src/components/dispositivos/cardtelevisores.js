@@ -1,6 +1,6 @@
 import { CCard, CButton, CCardBody, CCardTitle, CRow, CCol, CImage } from '@coreui/react';
 import '../../assets/css/index.css';
-import  BotonApagarTelevisor from './botonapagartelevisor';
+import  BotonApagarTelevisor from './BotonApagarTelevisor';
 
 const CardTelevisores= ({televisores})=>{
     return(

@@ -6,17 +6,17 @@ import { COMANDOS_POST_ENDPOINT } from '../../connections/helpers/endpoints';
 import "../../assets/css/index.css";
 import axios from 'axios';
 
-const BotonApagar = ({dispositivo, iddispositivos, setIconColor, obtenerinfodispositivos}) => {
-  console.log(dispositivo);
+const BotonApagarAire = ({dispositivo, iddispositivos, setIconoaire}) => {
+  console.log(iddispositivos);
 
   const [backgroundColor, setBackgroundColor] = useState(''); // Estado para el color de fondo
 
   useEffect(() => {
     // Actualizar el color del icono y del botón cuando cambie el estado del dispositivo
     const newColor = dispositivo.power === 'on' ? '#008f39' : '#D50000';
-    const iconcolor = dispositivo.power === 'on' ? '#2962FF' : '#000000';
+    const iconcolor = dispositivo.power === 'on' ? '#2962FF' : '#ffffff';
     setBackgroundColor(newColor);
-    setIconColor(iconcolor);
+    setIconoaire(iconcolor);
   }, [dispositivo.power]);
 
   const handleButtonClick = () => {
@@ -26,7 +26,7 @@ const BotonApagar = ({dispositivo, iddispositivos, setIconColor, obtenerinfodisp
         axios.post(`${COMANDOS_POST_ENDPOINT}/${id}/turnOn`)
         .then(respuesta=>{
             //setUsuariosData(respuesta.data);
-            setIconColor('#2962FF');
+            setIconoaire('#2962FF');
             console.log(respuesta);
         })
         .catch(err=>{
@@ -39,7 +39,7 @@ const BotonApagar = ({dispositivo, iddispositivos, setIconColor, obtenerinfodisp
         .then(respuesta=>{
             //setUsuariosData(respuesta.data);
             console.log(respuesta);
-            setIconColor('#000000');
+            setIconoaire('#ffffff');
         })
         .catch(err=>{
             console.error(err);
@@ -57,4 +57,4 @@ const BotonApagar = ({dispositivo, iddispositivos, setIconColor, obtenerinfodisp
   );
 };
 
-export default BotonApagar;
+export default BotonApagarAire;

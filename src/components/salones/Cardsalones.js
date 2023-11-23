@@ -1,7 +1,7 @@
 import { CCard, CCol, CRow, CCardBody, CCardTitle, CBadge} from '@coreui/react';
 import { CImage } from '@coreui/react'
 import { useState } from 'react';
-import ModalDetalleSalon from './modaldetallesalon';
+import ModalDetalleSalon from './ModalDetalleSalon';
 import '../../assets/css/index.css';
 
 const CardSalones = ({ informacion }) => {
