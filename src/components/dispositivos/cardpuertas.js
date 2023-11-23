@@ -1,6 +1,6 @@
 import { CCard, CButton, CCardBody, CCardTitle, CRow, CCol, CImage } from '@coreui/react';
 import '../../assets/css/index.css';
-import  BotonApagarPuerta from './BotonApagarPuerta';
+import  BotonApagarPuerta from './botonapagarpuerta';
 
 const CardPuertas= ({puertas})=>{
     return(

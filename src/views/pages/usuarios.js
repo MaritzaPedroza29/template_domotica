@@ -1,8 +1,8 @@
 import { CCol, CContainer, CRow } from "@coreui/react";
-import  CardUsuario from "../../components/usuarios/CardUsuarios";
+import  CardUsuario from "../../components/usuarios/cardusuarios";
 import { useState, useEffect } from "react";
-import  BotonCrear  from "../../components/usuarios/BotonCrear";
-import  ModalCrearUsuario  from "../../components/usuarios/Modalcrearusuario";
+import  BotonCrear  from "../../components/usuarios/Botoncrear";
+import  ModalCrearUsuario  from "../../components/usuarios/modalcrearusuario";
 import {SIGNUP_GET_ENDPOINT} from "../../connections/helpers/endpoints";
 import { CREARUSUARIOS_POST_ENDPOINT } from "../../connections/helpers/endpoints";
 import { ELIMINARUSUARIOS_DELETE_ENDPOINT } from "../../connections/helpers/endpoints";

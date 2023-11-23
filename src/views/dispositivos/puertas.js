@@ -1,5 +1,5 @@
 import {  Card, CCol, CContainer, CRow } from "@coreui/react";
-import CardPuertas from "../../components/dispositivos/CardPuertas";
+import CardPuertas from "../../components/dispositivos/cardpuertas";
 import puertas from "../../connections/puertas";
 import { useState, useEffect } from "react";
 

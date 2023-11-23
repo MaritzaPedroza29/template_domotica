@@ -1,7 +1,7 @@
 import {  Card, CCol, CContainer, CRow } from "@coreui/react";
 import Dispositivos_data from "../../connections/dispositivos";
 import { useState, useEffect } from "react";
-import CardDispositivos from "../../components/dispositivos/CardDispositivos";
+import CardDispositivos from "../../components/dispositivos/carddispositivos";
 import { OBTENERIDDISPOSITIVOS_GET_ENDPOINT } from "../../connections/helpers/endpoints";
 import {APIDEVICE_POST_ENDPOINT} from "../../connections/helpers/endpoints"
 import axios from "axios";

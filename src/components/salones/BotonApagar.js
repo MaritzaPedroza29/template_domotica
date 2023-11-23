@@ -46,7 +46,7 @@ const BotonApagar = ({dispositivo, iddispositivos}) => {
 
   return (
     <div className='mio-boton-redondo'>
-      <CButton className='' style={{ backgroundColor }} onClick={handleButtonClick}>
+      <CButton  className='' style={{ backgroundColor }} onClick={handleButtonClick}>
         <CIcon icon={icon.cilPowerStandby} />
       </CButton>
     </div>

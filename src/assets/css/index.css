@@ -179,6 +179,11 @@ body {
     font-size: 16px;
     border: 1px solid #000000; /* Quita el borde */
     cursor: pointer;
+    align-items: center;
+    display: grid;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
   }
   .mio-carddispositivos{
     width: 200px;

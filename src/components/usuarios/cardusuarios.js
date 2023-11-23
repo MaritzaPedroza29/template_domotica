@@ -3,7 +3,7 @@ import CIcon from '@coreui/icons-react';
 import * as icon from '@coreui/icons';
 import CForm from '@coreui/react';
 import { useState, useEffect } from "react";
-import ModalDetalleUsuario  from "./Modaldetalleusuario";
+import ModalDetalleUsuario  from "./modaldetalleusuario";
 import image from "../../assets/images/usuarios/user.png"
 
 

@@ -1,6 +1,6 @@
 import { CCard, CButton, CCardBody, CCardTitle, CRow, CCol } from '@coreui/react';
 import '../../assets/css/index.css';
-import  BotonApagar from './BotonApagar';
+import  BotonApagar from './botonapagar';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 

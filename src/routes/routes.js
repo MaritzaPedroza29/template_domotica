@@ -1,10 +1,10 @@
 import React from 'react'
-const AireAcondicionado= React.lazy(()=> import('../views/dispositivos/Airesacondicionados'))
-const Usuario= React.lazy(()=> import('../views/pages/Usuarios'))
-const Salones = React.lazy(() => import('../views/pages/Salones'))
-const Dispositivos = React.lazy(()=> import('../views/pages/Dispositivos'))
-const Televisores = React.lazy(()=>import('../views/dispositivos/Televisores'))
-const Puertas = React.lazy(()=>import("../views/dispositivos/Puertas"))
+const AireAcondicionado= React.lazy(()=> import('../views/dispositivos/airesacondicionados'))
+const Usuario= React.lazy(()=> import('../views/pages/usuarios'))
+const Salones = React.lazy(() => import('../views/pages/salones'))
+const Dispositivos = React.lazy(()=> import('../views/pages/dispositivos'))
+const Televisores = React.lazy(()=>import('../views/dispositivos/televisores'))
+const Puertas = React.lazy(()=>import("../views/dispositivos/puertas"))
 
 const routes = [
   { path: '/dispositivos', exact: true, name: 'Home', element:Dispositivos},

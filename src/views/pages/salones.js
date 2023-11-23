@@ -8,8 +8,8 @@ import SelectSalones from "../../components/salones/SelecteSalones";
 import  CardSalones  from "../../components/salones/Cardsalones";
 import { useState, useEffect} from "react";
 import salones_bloques from "../../connections/salonesbloques";
-import BotonCrear  from "../../components/salones/BotonCrear";
-import  ModalCrearSalon  from "../../components/salones/ModalCrearSalon";
+import BotonCrear  from "../../components/salones/botoncrear";
+import  ModalCrearSalon  from "../../components/salones/modalcrearsalon";
 
 const Salones= ()=>{
     const [selectedOptionInfo, setSelectedOptionInfo] = useState([]);

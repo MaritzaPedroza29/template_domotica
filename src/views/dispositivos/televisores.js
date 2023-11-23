@@ -1,5 +1,5 @@
 import {  Card, CCol, CContainer, CRow } from "@coreui/react";
-import CardTelevisores from "../../components/dispositivos/CardTelevisores";
+import CardTelevisores from "../../components/dispositivos/cardtelevisores";
 import televisores from "../../connections/televisores";
 import { useState, useEffect } from "react";
 
