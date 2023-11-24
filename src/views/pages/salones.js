@@ -38,23 +38,24 @@ const Salones= ()=>{
         .catch(err=>{
             console.error(err);
         })
-    }, []);
+    }, [change]);
 
     useEffect(()=>{
+        console.log('Efecto secundario ejecutado');
         axios.get(OBTENERINFODISPOSITIVOS_GET_ENDPOINT)
-        .then(response=>{
-            setDispositivos(response.data);
+        .then(response => {
+          setDispositivos(response.data)
+            //setSearching(false)
+        }).catch(err => {
+            console.error(err)
+            //setSearching(false)
         })
-        .catch(err=>{
-            console.error(err);
-        })
-        console.log("Obteniendo información de dispositivos...");
     }, [change]);
-    
-      const statusChange = ()=>{
-        console.log(!change);
+  
+  
+    const statusChange = ()=>{
         setChange(!change)
-      }
+    }
     console.log(dispositivos);
     /*const opcionselect = (salonesSeleccionados) => {
         console.log(salonesSeleccionados);

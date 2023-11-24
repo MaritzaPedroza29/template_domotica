@@ -225,7 +225,7 @@ body {
     width: 200px;
     margin: 20px 0px 10px 0px;
     justify-content:space-between;
-    border: 2px solid #000000; 
+    /*border: 2px solid #000000;*/ 
   }
 .mio-iconoapagar{
   text-align: center;

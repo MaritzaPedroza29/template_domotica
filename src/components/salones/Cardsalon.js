@@ -8,15 +8,34 @@ import BotonApagar from './BotonApagar';
 import BotonApagarAire from './BotonApagarAire';
 
 const CardSalon= ({ salon, dispositivo, iddispositivos, callback})=>{
-    const [iconColor, setIconColor] = useState('#D50000');
+    const [iconColor, setIconColor] = useState('');
     const [iconoAire, setIconoaire] = useState('');
+    const [backgroundColor, setBackgroundColor] = useState('')
+
+    useEffect(() => { 
+        switch (dispositivo.temperatura) {
+            case  dispositivo.temperatura<=20:
+              setBackgroundColor("#2962FF")
+              break;
+            case dispositivo.temperatura>=22 && dispositivo.temperatura<=25:
+                setBackgroundColor("#00C853")
+              break;
+            case dispositivo.temperatura>=26 && dispositivo.temperatura<=27:
+                setBackgroundColor("#FF6D00")
+              break;
+            default:
+                setBackgroundColor("#E53935")
+          }
+    }, [dispositivo.temperatura]);
+
     console.log(dispositivo);
     const statusChange= ()=>{
-        callback()
+        console.log("si está llamando a esta función");
+        callback();
     }
 
     return(
-        <CCard className='mio-cardsalon'>
+        <CCard className='mio-cardsalon' style={{  boxShadow: `0 0 15px ${backgroundColor}` }}>
             <CCardHeader>
                 <CRow className="align-items-center">
                 <CCol>{salon.nombre_salon}</CCol>
@@ -34,13 +53,13 @@ const CardSalon= ({ salon, dispositivo, iddispositivos, callback})=>{
                             <CIcon icon={icon.cilTv} width={30} className="mr-3"/>
                         </div>
                         <CCardText>{dispositivo.vatios}</CCardText>
-                        <BotonApagar dispositivo={dispositivo} iddispositivos={iddispositivos} setIconColor={setIconColor}  callback={statusChange}></BotonApagar>
+                        <BotonApagar dispositivo={dispositivo} iddispositivos={iddispositivos} setIconColor={setIconColor} callback={statusChange}></BotonApagar>
                     </div>
                     <div className="d-flex flex-column align-items-center">
                         <div>
                             <CImage src={miimagen} width={35} className="mr-10 mio-aire" style={{ boxShadow: `0 0 5px ${ iconoAire }`}} />
                         </div>
-                        <BotonApagarAire dispositivo={dispositivo} iddispositivos={iddispositivos} setIconoaire={setIconoaire}></BotonApagarAire>
+                        <BotonApagarAire dispositivo={dispositivo} iddispositivos={iddispositivos} setIconoaire={setIconoaire} callback={statusChange}></BotonApagarAire>
                     </div>
                     </div>
                     <div>
