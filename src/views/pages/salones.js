@@ -17,6 +17,7 @@ const Salones= ()=>{
     const [salones, setSalones] = useState([]);
     const [iddispositivos, setIddispositivos] = useState([]);
     const [dispositivos, setDispositivos] = useState([]);
+    const [change, setChange]= useState(false)
 
    
     useEffect(()=>{
@@ -39,7 +40,7 @@ const Salones= ()=>{
         })
     }, []);
 
-    const obtenerinfodispositivos = () => {
+    useEffect(()=>{
         axios.get(OBTENERINFODISPOSITIVOS_GET_ENDPOINT)
         .then(response=>{
             setDispositivos(response.data);
@@ -48,10 +49,12 @@ const Salones= ()=>{
             console.error(err);
         })
         console.log("Obteniendo información de dispositivos...");
-    };
-    useEffect(() => {
-        obtenerinfodispositivos();
-      }, []); // Llamar a fetchData cuando el componente monta
+    }, [change]);
+    
+      const statusChange = ()=>{
+        console.log(!change);
+        setChange(!change)
+      }
     console.log(dispositivos);
     /*const opcionselect = (salonesSeleccionados) => {
         console.log(salonesSeleccionados);
@@ -92,7 +95,7 @@ const Salones= ()=>{
             <CContainer className="mt-3 mb-3">
                 <h3 className="text-center">Salones</h3>
                 <CRow>
-                    {salones.map((salon) =><CCol><CardSalon salon={salon} dispositivo={dispositivos} iddispositivos={iddispositivos}/></CCol>)}
+                    {salones.map((salon) =><CCol><CardSalon salon={salon} dispositivo={dispositivos} iddispositivos={iddispositivos} callback={statusChange}/></CCol>)}
                 </CRow>
             </CContainer>
         </>

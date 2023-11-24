@@ -7,10 +7,14 @@ import miimagen from "../../assets/images/dispositivos/aireacondicionado.png";
 import BotonApagar from './BotonApagar';
 import BotonApagarAire from './BotonApagarAire';
 
-const CardSalon= ({ salon, dispositivo, iddispositivos, obtenerinfodispositivos})=>{
+const CardSalon= ({ salon, dispositivo, iddispositivos, callback})=>{
     const [iconColor, setIconColor] = useState('#D50000');
     const [iconoAire, setIconoaire] = useState('');
     console.log(dispositivo);
+    const statusChange= ()=>{
+        callback()
+    }
+
     return(
         <CCard className='mio-cardsalon'>
             <CCardHeader>
@@ -30,7 +34,7 @@ const CardSalon= ({ salon, dispositivo, iddispositivos, obtenerinfodispositivos}
                             <CIcon icon={icon.cilTv} width={30} className="mr-3"/>
                         </div>
                         <CCardText>{dispositivo.vatios}</CCardText>
-                        <BotonApagar dispositivo={dispositivo} iddispositivos={iddispositivos} setIconColor={setIconColor} obtenerinfodispositivos={obtenerinfodispositivos}></BotonApagar>
+                        <BotonApagar dispositivo={dispositivo} iddispositivos={iddispositivos} setIconColor={setIconColor}  callback={statusChange}></BotonApagar>
                     </div>
                     <div className="d-flex flex-column align-items-center">
                         <div>
