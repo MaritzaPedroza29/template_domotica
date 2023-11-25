@@ -5,7 +5,7 @@ import { cilLockLocked, cilUser } from '@coreui/icons'
 import '../../assets/css/index.css'
 import { useState } from 'react'
 
-const FormularioLogin = (props) => {
+function FormularioLogin(props){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -22,7 +22,7 @@ const FormularioLogin = (props) => {
               <CIcon icon={cilUser} />
           </CInputGroupText>
           <CFormInput 
-              type="number"
+              type="Email"
               placeholder="Usuario" 
               autoComplete="username"
               value={username}

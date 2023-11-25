@@ -5,7 +5,7 @@ import { useState } from 'react';
 import "../css/index.css"
 import miImagen from '../img/smartfesc.png';
 
-  function SigninFormulario({callback}){
+function SigninFormulario({callback}){
     
     const enviarFormulario = (e) => {
       e.preventDefault();

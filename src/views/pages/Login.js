@@ -8,30 +8,34 @@ import logo from "../../assets/images/smartfesc.jpg";
 import validator from 'validator'
 
 
-const Login= ()=> {
+function Login() {
     const navegar=useNavigate();
     const [errores, setErrores]= useState({});
     const [usuarios, setUsuarios] = useState([]);
     useEffect(()=>{
         setUsuarios(usuarios_login);
     }, []);
-
+      console.log(errores);
     const login=({username, password}) => {
 
       const error={};
       setErrores(error);
       
-      if(!validator.isNumeric(username)){
-        error.idUsuario = "Cedula debe ser solo numeros";
+      if(!validator.isEmail(username)){
+        error.username = "Dirección de correo electrónico no válida.";
       }
 
       if(!validator.isLength(password, {min: 6, max: 12})){
         error.password = "Contraseña debe tener entre 6 y 12 caracteres";
       }
+      if(!(Object.keys(error).length===0)){
+        setErrores(error);
+        return;
+      }
         console.log(usuarios);
         const usuarioEncontrado = usuarios.find((usuario) => {
             return usuario.usuario === username && usuario.contraseña === password;
-          });
+        });
           
           if (usuarioEncontrado) {
             // Navega a la página deseada
@@ -53,7 +57,7 @@ const Login= ()=> {
                     <CCardBody className="d-flex align-items-center justify-content-center">
                       <FormularioLogin errores={errores} callback={login}></FormularioLogin>
                     </CCardBody>
-                    {errores.respuesta && <CAlert color="danger">{errores.respuesta}</CAlert>}
+                    {errores.ingresar && <CAlert color="danger">{errores.ingresar}</CAlert>}
                 </CCard>
             </CCardGroup>
           </CCol>
