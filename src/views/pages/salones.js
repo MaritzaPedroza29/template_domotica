@@ -39,7 +39,7 @@ const Salones= ()=>{
             console.error(err);
         })
     }, [change]);
-
+    console.log(iddispositivos);
     useEffect(()=>{
         console.log('Efecto secundario ejecutado');
         axios.get(OBTENERINFODISPOSITIVOS_GET_ENDPOINT)

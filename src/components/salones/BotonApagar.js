@@ -23,7 +23,7 @@ const BotonApagar = ({dispositivo, iddispositivos, setIconColor, callback}) => {
   }, [dispositivo.power]);
 
   const handleButtonClick = () => {
-    const id = iddispositivos[1].iddispositivo;
+    const id = iddispositivos[2].iddispositivo;
     // Cambia el color al hacer clic
     if (backgroundColor === '#D50000') {
         axios.post(`${COMANDOS_POST_ENDPOINT}/${id}/turnOn`)

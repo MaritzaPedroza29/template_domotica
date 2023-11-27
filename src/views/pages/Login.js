@@ -6,12 +6,18 @@ import FormularioLogin from '../../components/login/FormularioLogin.js'
 import usuarios_login from '../../connections/usuarioslogin.js'
 import logo from "../../assets/images/smartfesc.jpg";
 import validator from 'validator'
+import { useDispatch, useSelector } from 'react-redux'
+//import { authentication } from '../../connections/usuarioDispach.js'
+import { SIGIN_POST_ENDPOINT } from '../../connections/helpers/endpoints.js'
+import axios from 'axios'
+import { AUTORIZADO_GET_ENDPOINT } from '../../connections/helpers/endpoints.js'
 
 
 function Login() {
     const navegar=useNavigate();
     const [errores, setErrores]= useState({});
     const [usuarios, setUsuarios] = useState([]);
+    let usuario = {}
     useEffect(()=>{
         setUsuarios(usuarios_login);
     }, []);
@@ -32,17 +38,40 @@ function Login() {
         setErrores(error);
         return;
       }
-        console.log(usuarios);
-        const usuarioEncontrado = usuarios.find((usuario) => {
-            return usuario.usuario === username && usuario.contraseña === password;
+      usuario = {
+        email : username,
+        password: password
+      }
+    
+      axios.post(SIGIN_POST_ENDPOINT,(usuario))
+      .then(respuesta=>{
+        console.log(respuesta);
+        const token = respuesta.data.token;
+        // Guardar el token en localStorage
+        localStorage.setItem('token', token);
+        autorizado();
+      })
+      .catch(err=>{
+        setErrores({ respuesta: err.response.data });
+      });
+      
+      const autorizado =() => {
+        console.log("llama a esta función");
+        const token = localStorage.getItem('token');
+
+        // Configurar la cabecera de la solicitud con el token
+        const headers = {
+          Authorization: `Bearer ${token}`,
+        };
+
+        axios.get(AUTORIZADO_GET_ENDPOINT, { headers })
+        .then(respuesta => {
+          navegar("/");
+        })
+        .catch(error => {
+          // Manejar errores, como token no válido, no autorizado, etc.
         });
-          
-          if (usuarioEncontrado) {
-            // Navega a la página deseada
-            navegar("/dispositivos");
-          } else {
-            setErrores({ ingresar: "No se puede iniciar sesión con esas credenciales" });
-          }
+      }
     }
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">

@@ -6,10 +6,12 @@ import "../../assets/css/index.css";
 import miimagen from "../../assets/images/dispositivos/aireacondicionado.png";
 import BotonApagar from './BotonApagar';
 import BotonApagarAire from './BotonApagarAire';
+import BotonApagarPuerta from './BotonApagarpuerta';
 
 const CardSalon= ({ salon, dispositivo, iddispositivos, callback})=>{
     const [iconColor, setIconColor] = useState('');
     const [iconoAire, setIconoaire] = useState('');
+    const [iconoPuerta, setIconoPuerta] = useState('');
     const [backgroundColor, setBackgroundColor] = useState('')
 
     useEffect(() => { 
@@ -60,6 +62,12 @@ const CardSalon= ({ salon, dispositivo, iddispositivos, callback})=>{
                             <CImage src={miimagen} width={35} className="mr-10 mio-aire" style={{ boxShadow: `0 0 5px ${ iconoAire }`}} />
                         </div>
                         <BotonApagarAire dispositivo={dispositivo} iddispositivos={iddispositivos} setIconoaire={setIconoaire} callback={statusChange}></BotonApagarAire>
+                    </div>
+                    <div className="d-flex flex-column align-items-center">
+                        <div>
+                            <CIcon icon={icon.cilDoor} width={35} className="mr-10 mio-aire" style={{ boxShadow: `0 0 5px ${ iconoPuerta }`}} />
+                        </div>
+                        <BotonApagarPuerta dispositivo={dispositivo} iddispositivos={iddispositivos} setIconoPuerta={setIconoPuerta} callback={statusChange}></BotonApagarPuerta>
                     </div>
                     </div>
                     <div>

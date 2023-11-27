@@ -9,32 +9,6 @@ import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
 const sidebarnav = [
   {
-    component: CNavGroup,
-    name: 'Dispositivos',
-    to: '/dispositivos',
-    icon: <CIcon icon={cilDevices} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'Aire acondicionado',
-        to: '/aireacondicionado',
-      },
-      {
-        component: CNavItem,
-        name: 'Puertas',
-        to: '/dispositivos/puertas',
-      },{
-        component: CNavItem,
-        name: 'Televisores',
-        to: '/dispositivos/televisores',
-      },{
-        component: CNavItem,
-        name: 'Todos',
-        to: '/dispositivos',
-      },
-    ]
-  },
-  {
     component: CNavItem,
     name: 'Salones',
     to: '/salones',
