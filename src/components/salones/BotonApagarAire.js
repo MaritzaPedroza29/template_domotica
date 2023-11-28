@@ -23,7 +23,7 @@ const BotonApagarAire = ({dispositivo, iddispositivos, setIconoaire, callback}) 
   }, [dispositivo.estadoaire]);
 
   const handleButtonClick = () => {
-    const id = iddispositivos[0].iddispositivo;
+    const id = iddispositivos[1].iddispositivo;
     // Cambia el color al hacer clic
     if (backgroundColor === '#D50000') {
         axios.post(`${COMANDOSAIRE_POST_ENDPOINT}/${id}/turnOn`)

@@ -10,9 +10,11 @@ import { useState, useEffect} from "react";
 import salones_bloques from "../../connections/salonesbloques";
 import BotonCrear  from "../../components/salones/BotonCrear";
 import  ModalCrearSalon  from "../../components/salones/ModalCrearSalon";
+import { CREAR_POST_SALON } from "../../connections/helpers/endpoints";
 
 const Salones= ()=>{
     const [selectedOptionInfo, setSelectedOptionInfo] = useState([]);
+    const [errores, setErrores]= useState({});
     const [mostrarModal, setMostrarModal] = useState(false);
     const [salones, setSalones] = useState([]);
     const [iddispositivos, setIddispositivos] = useState([]);
@@ -60,28 +62,19 @@ const Salones= ()=>{
     /*const opcionselect = (salonesSeleccionados) => {
         console.log(salonesSeleccionados);
         setSelectedOptionInfo(salonesSeleccionados);
-    };
+    };*/
     const agregarSalones = (nuevosSalones) => {
-        // Clonar el arreglo de salones para no mutar el estado directamente
-        const nuevosSalonesData = [...salonesdata];
-    
-        // Encuentra el índice del bloque al que deseas agregar el nuevo salón
-        const bloqueIndex = nuevosSalonesData.findIndex((bloque) => bloque.bloque === nuevosSalones.bloque);
-    
-        if (bloqueIndex !== -1) {
-            // Agrega el nuevo salón al subarreglo de salones dentro del bloque
-            nuevosSalonesData[bloqueIndex].data.salones.push({
-                id: nuevosSalonesData[bloqueIndex].data.salones.length + 1,
-                nombresalon: nuevosSalones.nombre,
-                dispositivos: "3 dispositivos",
-                aire_acondicionado: nuevosSalones.aire_acondicionado,
-                televisor: nuevosSalones.televisor,
-                puerta: nuevosSalones.puerta,
-            });
-        }
-    
-        // Actualiza el estado con el nuevo arreglo de salones
-        setSalonesdata(nuevosSalonesData);
+        const errores={};
+        setErrores(errores);
+        axios.post(CREAR_POST_SALON,(nuevosSalones)
+      ).then(response=>{
+        //fetchData();
+        //setUsuariosData(response.data);
+          console.log(response);
+      })
+      .catch(error=>{
+        setErrores({new:error.response.data.message});
+      })
     };
     
     const abrirModal = () => {
@@ -90,11 +83,13 @@ const Salones= ()=>{
     
       const cerrarModal = () => {
         setMostrarModal(false);
-      }; */   
+      };   
     return(
         <>
             <CContainer className="mt-3 mb-3">
                 <h3 className="text-center">Salones</h3>
+                <BotonCrear abrirModal={abrirModal}></BotonCrear>
+                <ModalCrearSalon  mostrarModal={mostrarModal} cerrarModal={cerrarModal} salones={salones} iddispositivos={iddispositivos} agregarSalones={agregarSalones}></ModalCrearSalon>
                 <CRow>
                     {salones.map((salon) =><CCol><CardSalon salon={salon} dispositivo={dispositivos} iddispositivos={iddispositivos} callback={statusChange}/></CCol>)}
                 </CRow>

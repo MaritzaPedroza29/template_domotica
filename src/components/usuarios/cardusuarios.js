@@ -8,7 +8,7 @@ import image from "../../assets/images/usuarios/user.png"
 
 
 
-const CardUsuario= ({usuarios, eliminarUsuario, agregarUsuario, actualizarUsuario})=>{
+const CardUsuario= ({usuarios, eliminarUsuario, agregarUsuario, actualizarUsuario, callback})=>{
     const [showModal, setShowModal] = useState(false);
     const [userData, setUserData] = useState([]);
     useEffect(()=>{
@@ -27,7 +27,9 @@ const CardUsuario= ({usuarios, eliminarUsuario, agregarUsuario, actualizarUsuari
         setShowModal(false);
       };
 
-      
+      const statusChange= ()=>{
+        callback()
+      }
       
     return(
         <>
@@ -55,6 +57,7 @@ const CardUsuario= ({usuarios, eliminarUsuario, agregarUsuario, actualizarUsuari
           agregarUsuario = {agregarUsuario}
           eliminarUsuarios = {eliminarUsuario}
           actualizarUsuario={actualizarUsuario}
+          callback={statusChange}
         />
       </>
     )

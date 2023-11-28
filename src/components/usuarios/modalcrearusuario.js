@@ -3,7 +3,7 @@ import { CAlert } from '@coreui/react'
 import {CFormGroup, CFormLabel, CInputGroup,CFormInput,CForm} from '@coreui/react';
 import React, { useState, useEffect } from 'react';
 
-const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios })=> {
+const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios, callback})=> {
   console.log(mostrarModal);
   const  [visible, setVisible] = useState(false)
   const [archivoSeleccionado, setArchivoSeleccionado] = useState(null);
@@ -14,6 +14,9 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
     nombreUnico: "",
   });
   console.log(nuevoUsuario);
+  const statusChange= ()=>{
+    callback()
+  }
   const agregarusuario = () => {
     if (!nuevoUsuario.nombre.trim() || !nuevoUsuario.correo.trim() || !nuevoUsuario.clave.trim()) {
       return;
@@ -28,6 +31,7 @@ const ModalCrearUsuario= ({ mostrarModal, cerrarModal, agregarUsuario, usuarios 
     };
 
     agregarUsuario(nuevoUsuarioData);
+    statusChange()
     // Actualiza el estado para agregar el nuevo usuario
     setNuevoUsuario({
       nombre: "",

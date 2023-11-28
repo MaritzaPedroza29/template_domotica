@@ -3,7 +3,7 @@ import {CForm, CModalHeader, CModalTitle, CModalBody, CModalFooter, CFormInput, 
 import {CModal} from '@coreui/react';
 
 
-const ModalDetalleUsuario= ({show, handleClose, userData, agregarUsuario, eliminarUsuarios,handleSwitchChange, actualizarUsuario})=>{
+const ModalDetalleUsuario= ({show, handleClose, userData, agregarUsuario, eliminarUsuarios,handleSwitchChange, actualizarUsuario, callback})=>{
     const [disabled, setDisabled] = useState(true);
     const  [visible, setVisible] = useState(false)
     const [nuevoNombre, setNuevoNombre] = useState("");
@@ -43,6 +43,7 @@ const ModalDetalleUsuario= ({show, handleClose, userData, agregarUsuario, elimin
       
           // Llama a la función updateUser para actualizar el usuario en el componente principal
           actualizarUsuario(nuevoUsuarioData);
+          statusChange();
       
           // Resto del código...
         };
@@ -50,7 +51,9 @@ const ModalDetalleUsuario= ({show, handleClose, userData, agregarUsuario, elimin
       const handleClick = () => {
         eliminarUsuarios(userData.idusuario);
       };
-
+      const statusChange= ()=>{
+        callback()
+      }
       const handleSubmit = (e) => {
         e.preventDefault();
         handleGuardarClick();

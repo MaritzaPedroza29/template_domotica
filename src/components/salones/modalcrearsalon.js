@@ -1,24 +1,50 @@
 import { CModal, CForm, CButton, CListGroup, CModalHeader, CModalTitle, CModalBody, CFormLabel, CFormSelect, CListGroupItem, CFormCheck, CModalFooter, CFormInput} from '@coreui/react';
 import { useState } from 'react';
 
-const ModalCrearSalon= ({mostrarModal, cerrarModal, salones, agregarSalon})=>{
+const ModalCrearSalon= ({mostrarModal, cerrarModal, salones, iddispositivos,agregarSalones})=>{
   console.log(salones);
-    const [nuevoSalon, setNuevoSalon] = useState({
+  const [nuevoSalon, setNuevoSalon] = useState({
+    nombre: "", 
+    idusuario: 2,
+    dispositivosSeleccionados: []
+  });
+
+  const handleDispositivoChange = (dispositivo) => {
+    const { id } = dispositivo;
+
+    // Comprobar si el dispositivo ya está en la lista
+    if (nuevoSalon.dispositivosSeleccionados.includes(id)) {
+      // Si está, quitarlo de la lista
+      setNuevoSalon((prevSalon) => ({
+        dispositivosSeleccionados: prevSalon.dispositivosSeleccionados.filter(
+          (dispositivoId) => dispositivoId !== id
+        ),
+      }));
+    } else {
+      // Si no está, agregarlo a la lista
+      setNuevoSalon((prevSalon) => ({
+        dispositivosSeleccionados: [...prevSalon.dispositivosSeleccionados, id],
+      }));
+    }
+  };
+    /*const [nuevoSalon, setNuevoSalon] = useState({
         nombre: "",
         aire_acondicionado: false,
         televisor: false,
         puerta: false,
         bloque: "1",
-    });
+    });*/
     const  [visible, setVisible] = useState(false);
-        console.log(salones);
-
+        console.log(iddispositivos);
+        
         const agregarsalon = () => {
-            if (!nuevoSalon.nombre.trim() || (!nuevoSalon.aire_acondicionado && !nuevoSalon.televisor && !nuevoSalon.puerta)) {
+          console.log(nuevoSalon);
+          
+            if (!nuevoSalon.nombre.trim()) {
               return;
             }
           
-            let aireacondicionado = false;
+            /*let aireacondicionado = false;
             let televisor = false;
             let puerta = false;
           
@@ -39,52 +65,29 @@ const ModalCrearSalon= ({mostrarModal, cerrarModal, salones, agregarSalon})=>{
               const nuevosSalones = [...salones];
               
               // Calcula el nuevo ID basado en la longitud de la lista de salones
-              const nuevoID = nuevosSalones[bloqueIndex].data.salones.length + 1;
+              const nuevoID = nuevosSalones[bloqueIndex].data.salones.length + 1;*/
               
               // Genera un nuevo salón con el nuevo ID
               const nuevoSalonData = {
-                id: nuevoID,
-                nombresalon: nuevoSalon.nombre,
-                dispositivos: [
-                  {id: 1,
-                    nombre:"aire_acondicionado A106",
-                    estado: 1,
-                    aire_acondicionado:aireacondicionado
-                  },{
-                    id: 2,
-                    nombre:"Televisor A106",
-                    estado: 1,
-                    televisor:televisor
-                  },{
-                    id: 3,
-                    nombre:"Puerta A106",
-                    estado: 1,
-                    puerta:puerta
-                  }
-                  
-                ],
+                nombre_salon:nuevoSalon.nombre,
+                idusuario:nuevoSalon.idusuario
               };
           
-              nuevosSalones[bloqueIndex].data.salones.push(nuevoSalonData);
+              //nuevosSalones[bloqueIndex].data.salones.push(nuevoSalonData);
               
               // Actualiza el estado con los nuevos salones
-              setNuevoSalon(nuevosSalones);
-              agregarSalon(nuevosSalones);
+              setNuevoSalon(nuevoSalonData);
+              agregarSalones(nuevoSalonData);
               // Restablece el estado para agregar el nuevo salón
               setNuevoSalon({
                 nombre: "",
-                aire_acondicionado: false,
-                televisor: false,
-                puerta: false,
-                bloque: "1",
+                idusuario: ""
               });
             }
-          };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         agregarsalon();
-    };
+    }
 return(
   <CModal alignment="center" visible={mostrarModal} onClose={() => setVisible(false)} aria-labelledby="VerticallyCenteredExample">
         <CForm onSubmit={handleSubmit}>
@@ -99,67 +102,25 @@ return(
                 placeholder="Ingrese el nombre del salón"
                 value={nuevoSalon.nombre}
                 onChange={(e) =>
-                    setNuevoSalon({ ...nuevoSalon, nombre: e.target.value })
-                  }
+                  setNuevoSalon({ ...nuevoSalon, nombre: e.target.value })
+                }
               />
             </div>
-            <div className="mb-3">
-              <CFormSelect aria-label="Default select example" value={nuevoSalon.bloque} onChange={(e)=>
-                setNuevoSalon({...nuevoSalon, bloque: e.target.value })
-                }>
-                    <option value={4}>Seleccione el bloque</option>
-                    <option value={salones[0].bloque}>{salones[0].bloque}</option>
-                    <option value={salones[1].bloque}>{salones[1].bloque}</option>
-                    <option value={salones[2].bloque}>{salones[2].bloque}</option>
-                </CFormSelect>
-            </div>
             <CListGroup>
-                <CListGroupItem>
-                <div>
-                  <div className='mio-lista'>
-                    <CFormCheck
-                      aria-label="option 1"
-                      checked={nuevoSalon.aire_acondicionado}
-                      onChange={(e) =>
-                        setNuevoSalon({ ...nuevoSalon, aire_acondicionado: e.target.value })
-                      }
-                    />
-                    <label className='mio-listalabel'>aire acondicionado A106</label>
-                    <img
-                      src={salones[0].data.salones[0].dispositivos[0].aire_acondicionado}
-                      alt=""
-                      className="mio-iconolista"
-                    />
-                  </div>
-                </div>
-                </CListGroupItem>
-                <CListGroupItem>
-                  <div className='mio-lista'>
-                    <CFormCheck aria-label="option 2" checked={nuevoSalon.televisor} onChange={(e)=>
-                          setNuevoSalon({...nuevoSalon, televisor:e.target.value})
-                      }/>
-                    <label className='mio-listalabel'>Televisor A106</label>
-                    <img
-                      src={salones[0].data.salones[0].dispositivos[1].televisor}
-                      alt=""
-                      className='mio-iconolista'
-                    />
-                  </div>
-                </CListGroupItem>
-                <CListGroupItem>
-                  <div className='mio-lista'>
-                    <CFormCheck aria-label="option 3"  checked={nuevoSalon.puerta} onChange={(e)=>
-                          setNuevoSalon({...nuevoSalon, puerta:e.target.value})
-                      }/>
-                      <label className='mio-listalabel'>puerta A106</label>
-                    <img
-                      src={salones[0].data.salones[1].dispositivos[2].puerta}
-                      alt=""
-                      className='mio-iconolista'
-                    />
-                  </div>
-                </CListGroupItem>
-            </CListGroup>      
+      {iddispositivos.map((dispositivo, index) => (
+        <CListGroupItem key={index}>
+          <div className='mio-lista'>
+            <CFormCheck
+              aria-label={`option ${index + 1}`}
+              checked={nuevoSalon.dispositivosSeleccionados.includes(dispositivo.id)}
+              onChange={() => handleDispositivoChange(dispositivo)}
+            />
+            <label className='mio-listalabel'>{dispositivo.nombre_dispositivo}</label>
+          </div>
+        </CListGroupItem>
+      ))}
+    </CListGroup>
+
           </CModalBody>
           <CModalFooter>
             <CButton  type="submit" color="success">Guardar</CButton>

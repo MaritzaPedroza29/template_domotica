@@ -15,10 +15,11 @@ const Usuarios= ()=>{
   const [mostrarModal, setMostrarModal] = useState(false);
   const [errores, setErrores]= useState({});
   const [usuariosdata, setUsuariosData] = useState([]);
+  const [change, setChange]= useState(false)
+  
 
   const fetchData = async () => {
     try {
-      console.log("llama a la función");
       const respuesta = await axios.get(SIGNUP_GET_ENDPOINT);
       
       if (respuesta.data) {
@@ -33,7 +34,7 @@ const Usuarios= ()=>{
 
   useEffect(() => {
     fetchData();
-  }, []); // Llamar a fetchData cuando el componente monta
+  }, [change]); // Llamar a fetchData cuando el componente monta
   
     const agregarUsuario = async (nuevoUsuario) => {
       const errores={};
@@ -41,7 +42,7 @@ const Usuarios= ()=>{
 
       axios.post(CREARUSUARIOS_POST_ENDPOINT,(nuevoUsuario)
       ).then(response=>{
-        fetchData();
+        //fetchData();
         //setUsuariosData(response.data);
           console.log(response);
       })
@@ -54,7 +55,7 @@ const Usuarios= ()=>{
         console.log(id);
         axios.delete(`${ELIMINARUSUARIOS_DELETE_ENDPOINT}/${id}`)
         .then(respuesta=>{
-          fetchData();
+          //fetchData();
           //setUsuariosData(respuesta.data);
           console.log(respuesta);
         })
@@ -68,13 +69,16 @@ const Usuarios= ()=>{
         id = nuevoUsuario.idusuario;
         axios.patch(`${ACTUALIZARUSUARIO_PATCH_ENDPOINT}/${id}`,nuevoUsuario)
         .then(respuesta=>{
-          fetchData();
+          //fetchData();
           console.log(respuesta);
         })
         .catch(err=>{
           console.error(err);
         })
       };
+      const statusChange = ()=>{
+        setChange(!change)
+    }
     const abrirModal = () => {
         setMostrarModal(true);
       };
@@ -87,11 +91,11 @@ return(
         <CContainer className="mt-3 mb-3">
         <h3 className="text-center">Usuarios</h3>
         <BotonCrear abrirModal={abrirModal}></BotonCrear>
-        <ModalCrearUsuario mostrarModal={mostrarModal} cerrarModal={cerrarModal} agregarUsuario={agregarUsuario} usuarios={usuariosdata}/>
+        <ModalCrearUsuario mostrarModal={mostrarModal} cerrarModal={cerrarModal} agregarUsuario={agregarUsuario} usuarios={usuariosdata} callback={statusChange}/>
         <CRow className="justify-content-md-center">
             {usuariosdata.map(usuario => {
               console.log('Datos del usuario:', usuario);
-              return <CCol sm="12" md="8" lg="6"><CardUsuario key={usuario.id} usuarios={usuario} eliminarUsuario={eliminarUsuario} agregarUsuario={agregarUsuario} actualizarUsuario={actualizarUsuario}/></CCol>;
+              return <CCol sm="12" md="8" lg="6"><CardUsuario key={usuario.id} usuarios={usuario} eliminarUsuario={eliminarUsuario} agregarUsuario={agregarUsuario} actualizarUsuario={actualizarUsuario} callback={statusChange}/></CCol>;
             })}
         </CRow>
         </CContainer>

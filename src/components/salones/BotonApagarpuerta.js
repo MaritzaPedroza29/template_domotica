@@ -25,31 +25,32 @@ const BotonApagarpuerta = ({dispositivo, iddispositivos, setIconoPuerta, callbac
   }, [dispositivo.power_puerta]);
 
   const handleButtonClick = () => {
-    const id = iddispositivos[1].iddispositivo;
+    const id = iddispositivos[2].iddispositivo;
     console.log(id);
+    handleTurnOn(id);
+    statusChange();
 
     // Cambia el color al hacer clic
+  };
+  const handleTurnOn = (id) => {
     if (backgroundColor === '#D50000') {
       axios.post(`${COMANDOS_POST_ENDPOINT}/${id}/turnOn`)
         .then(respuesta => {
           console.log(respuesta);
           setIconoPuerta('#2962FF');
           statusChange();
+          setBackgroundColor('#008f39'); // Cambia a azul claro
 
           // Configurar el temporizador para apagar después de un minuto (60000 milisegundos)
-          setTimeout(() => {
-            handleTurnOff(id);
-          }, 60000);
         })
         .catch(err => {
           console.error(err);
         });
-
-      setBackgroundColor('#008f39'); // Cambia a azul claro
     } else {
       handleTurnOff(id);
     }
-  };
+
+  }
 
   const handleTurnOff = (id) => {
     axios.post(`${COMANDOS_POST_ENDPOINT}/${id}/turnOff`)
@@ -57,12 +58,17 @@ const BotonApagarpuerta = ({dispositivo, iddispositivos, setIconoPuerta, callbac
         console.log(respuesta);
         statusChange();
         setIconoPuerta('#ffffff');
+        setBackgroundColor('#D50000'); // Cambia al color predeterminado
+
+        // Configurar el temporizador para encender después de un minuto (60000 milisegundos)
+        setTimeout(() => {
+          handleTurnOn();
+        }, 60000);
       })
       .catch(err => {
         console.error(err);
       });
 
-    setBackgroundColor('#D50000'); // Cambia al color predeterminado
   };
 
   return (

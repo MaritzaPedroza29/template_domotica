@@ -12,6 +12,7 @@ export const COMANDOS_POST_ENDPOINT =  API_URL+"dispositivos/comando";
 export const COMANDOSAIRE_POST_ENDPOINT = API_URL+"dispositivos/comandoaire";
 export const SIGIN_POST_ENDPOINT = API_URL+"auth/login";
 export const AUTORIZADO_GET_ENDPOINT = API_URL+"auth/profile";
+export const CREAR_POST_SALON = API_URL+"salones";
 /*export const SIGIN_POST_ENDPOINT= API_URL+"/usuario/login"
 export const MISPARTIDOS_GET_ENDPOINT= API_URL+"/usuario/mispartidos";
 export const CREARPARTIDO_POST_ENDPOINT= API_URL+"/partido";
